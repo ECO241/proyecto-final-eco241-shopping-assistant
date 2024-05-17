@@ -77,4 +77,13 @@ io.on('connection', (socket: Socket) => {
         }
         console.log(roomsDatabase)
     })
+
+    socket.on('enter', (data: string) => {
+        console.log(`Evento enter: ${data}`)
+        socket.emit('privado', JSON.stringify({
+            target: data,
+            message: "Cambia de pantalla",
+            type: "changeScreen"
+        }))
+    })
 })

@@ -68,6 +68,11 @@ export class whoAreYouButton extends HTMLElement {
                         body: JSON.stringify({ insideUserCode: state.userId }),
                     })
                     const newDataJson = await response.json()
+                    if (newDataJson.outsideUserCode !== "") {
+                        dispatch(
+                            changeScreen(ScreensTypes.dressingRoomPage, true)
+                        )
+                    }
                     // console.log("New Data:")
                     // console.log(newDataJson)
 
@@ -88,6 +93,11 @@ export class whoAreYouButton extends HTMLElement {
                         body: JSON.stringify({ outsideUserCode: state.userId }),
                     })
                     const newDataJson = await response.json()
+                    if (newDataJson.insideUserCode !== "") {
+                        dispatch(
+                            changeScreen(ScreensTypes.dressingRoomPage, true)
+                        )
+                    }
                     // console.log(newDataJson)
 
                 })

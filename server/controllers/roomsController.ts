@@ -29,13 +29,14 @@ export const roomsController = {
         try {
             const id = req.params.id
             const insideUserCode = req.body.insideUserCode
-            console.log("Inside User Code: ", insideUserCode)
-            console.log(id)
-            const roomNewData = await roomsService.updateInsideUserCode(id, insideUserCode)
 
-            if (roomNewData.outsideUserCode !== "") {
+            const roomNewData = await roomsService.updateInsideUserCode(id, insideUserCode)
+            const outsideUserCode = roomNewData.outsideUserCode
+
+            console.log(`Outside User Code = ${outsideUserCode}`)
+            if (outsideUserCode !== "") {
                 globalSocket?.emit('privado', JSON.stringify({
-                    target: insideUserCode,
+                    target: outsideUserCode,
                     message: roomNewData.outsideUserCode,
                     type: "updateOutsideUser"
                 }))
@@ -56,9 +57,12 @@ export const roomsController = {
             console.log(outsideUserCode)
             const roomNewData = await roomsService.updateOutsideUserCode(id, outsideUserCode)
 
-            if (roomNewData.insideUserCode !== "") {
+            const insideUserCode = roomNewData.insideUserCode
+
+            console.log(`Inside User Code = ${insideUserCode}`)
+            if (insideUserCode !== "") {
                 globalSocket?.emit('privado', JSON.stringify({
-                    target: outsideUserCode,
+                    target: insideUserCode,
                     message: roomNewData.insideUserCode,
                     type: "updateInsideUser"
                 }))
