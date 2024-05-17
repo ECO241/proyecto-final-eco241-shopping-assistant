@@ -1,6 +1,7 @@
 import { roomsService } from "../services/roomsService";
 import { Request, Response } from 'express'
 import { globalSocket, io } from "../socket/socket";
+import { roomType } from "../types/roomType";
 
 
 export const roomsController = {
@@ -32,10 +33,15 @@ export const roomsController = {
             console.log(id)
             const roomNewData = await roomsService.updateInsideUserCode(id, insideUserCode)
 
-            globalSocket?.emit('privado', JSON.stringify({
-                target: insideUserCode,
-                message: "Esto es un mensaje privado"
-            }))
+            if (roomNewData.outsideUserCode !== "") {
+                globalSocket?.emit('privado', JSON.stringify({
+                    target: insideUserCode,
+                    message: roomNewData.outsideUserCode,
+                    type: "updateOutsideUser"
+                }))
+            }
+
+
 
             res.json(roomNewData)
         } catch (error: any) {
@@ -50,10 +56,13 @@ export const roomsController = {
             console.log(outsideUserCode)
             const roomNewData = await roomsService.updateOutsideUserCode(id, outsideUserCode)
 
-            globalSocket?.emit('privado', JSON.stringify({
-                target: outsideUserCode,
-                message: "Esto es un mensaje privado"
-            }))
+            if (roomNewData.insideUserCode !== "") {
+                globalSocket?.emit('privado', JSON.stringify({
+                    target: outsideUserCode,
+                    message: roomNewData.insideUserCode,
+                    type: "updateInsideUser"
+                }))
+            }
 
             res.json(roomNewData)
         } catch (error: any) {

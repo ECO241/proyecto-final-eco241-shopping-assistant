@@ -17,3 +17,15 @@ export const updateUserId = (payload: string, reload: boolean): Action => ({
   payload,
   reload
 });
+
+export const updateOutsideUserId = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_OUTSIDE_USER_ID,
+  payload,
+  reload
+});
+
+export const updateInsideUserId = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_INSIDE_USER_ID,
+  payload,
+  reload
+});
