@@ -23,6 +23,9 @@ export class examplePage extends HTMLElement {
 
             const exampleComponent = this.ownerDocument.createElement("component-name")
             this.shadowRoot.appendChild(exampleComponent)
+
+            const clothesLikeComponent = this.ownerDocument.createElement("clothes_like-component")
+            this.shadowRoot.appendChild(clothesLikeComponent)
         }
     }
 }
