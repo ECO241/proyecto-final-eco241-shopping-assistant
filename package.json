@@ -2,11 +2,14 @@
   "name": "own_scaffolding",
   "version": "1.0.0",
   "description": "Código de Conducta de Colaboradores",
-  "main": "index.js",
+  "main": "index.ts",
+  "compilerOptions": {
+    "esModuleInterop": true
+  },
   "scripts": {
     "start": "serve",
     "build": "webpack --watch --mode=development",
-    "server": "nodemon ./server/server.ts"
+    "server": "nodemon ./index.ts"
   },
   "keywords": [],
   "author": "",

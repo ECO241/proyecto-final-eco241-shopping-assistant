@@ -3,6 +3,7 @@ import styles from "./appContainer.css"
 import { loadCss } from "./utilities/styles";
 import { addObserver, state } from "./store";
 import { ScreensTypes } from "./types/screens";
+import "./utilities/serverClientSide";
 
 class AppContainer extends HTMLElement {
     constructor() {

@@ -84,7 +84,6 @@ export class dressingRoomPage extends HTMLElement {
             Button.innerText = "Solicitar"
             buttonDiv.appendChild(Button)
 
-            
         }
     }
 }

@@ -68,6 +68,8 @@ export class landingPage extends HTMLElement {
             const scanQrButton = this.ownerDocument.createElement("button")
             scanQrButton.innerText = "Escanear QR"
             scanQRSection.appendChild(scanQrButton)
+
+            
             scanQrButton.addEventListener('click', () => {
                 dispatch(
                     changeScreen(ScreensTypes.scanPage, true)

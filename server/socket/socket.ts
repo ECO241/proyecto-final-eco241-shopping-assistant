@@ -1,6 +1,6 @@
 import z from 'zod'
 import { Socket } from "socket.io"
-import { app } from "../server"
+import { app } from ".."
 import { roomsDatabase } from '../serverDatabase'
 import { Server } from 'socket.io';
 import { createServer } from 'http';
@@ -21,6 +21,8 @@ const io = new Server(httpServer, {
 io.on('connection', (socket: Socket) => {
     console.log('A user has connected from:')
     console.log(socket.client.request.headers.origin)
+
+    socket.emit('pruebaConnection', JSON.stringify({hola: "Adios"}))
 
     socket.on('enteringRoom', (data: any) => {
         console.log("Entering Room")

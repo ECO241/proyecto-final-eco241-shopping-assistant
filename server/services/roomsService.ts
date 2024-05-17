@@ -55,10 +55,3 @@ export const roomsService = {
         return data
     }
 }
-
-
-// const { data, error } = await supabase
-//   .from('cities')
-//   .select('name, country_id')
-//   .eq('name', 'Singapore')
-//   .maybeSingle()
