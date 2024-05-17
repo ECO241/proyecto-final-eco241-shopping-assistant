@@ -6,3 +6,4 @@ export interface roomType {
     insideUserCode: string | undefined,
     outsideUserCode: string | undefined
 }
+
