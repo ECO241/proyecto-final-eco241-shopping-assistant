@@ -13,7 +13,6 @@ export const roomsService = {
         return data
     },
     getRoomById: async (roomId: string) => {
-
         const { data, error } = await supabase
             .from('Rooms')
             .select()

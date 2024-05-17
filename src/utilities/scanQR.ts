@@ -1,4 +1,7 @@
 import jsQR from "jsqr";
+import { dispatch } from "../store";
+import { changeScreen, updateRoomId } from "../store/actions";
+import { ScreensTypes } from "../types/screens";
 
 export function encenderCamara(HTMLVideoElement: HTMLVideoElement, HTMLCanvasElement: HTMLCanvasElement) {
     console.log("encenderCamara")
@@ -34,6 +37,7 @@ function tick(HTMLVideoElement: HTMLVideoElement, HTMLCanvasElement: HTMLCanvasE
                 scaned = true
                 console.log(`Codigo escaneado: ${code.data}`)
                 alert(`Ingresando al probador ${code.data}`)
+                goToWaitingRoom(code.data)
 
                 setTimeout(() => { tick(HTMLVideoElement, HTMLCanvasElement) }, 1000)
             }
@@ -42,5 +46,21 @@ function tick(HTMLVideoElement: HTMLVideoElement, HTMLCanvasElement: HTMLCanvasE
 
     if (!scaned) {
         requestAnimationFrame(() => { tick(HTMLVideoElement, HTMLCanvasElement) })
+    }
+}
+
+async function goToWaitingRoom(code: string) {
+    const response = await fetch(`http://localhost:5500/rooms/${code}`)
+    const roomData = await response.json()
+    console.log(roomData)
+    if (roomData.data !== null) {
+        dispatch(
+            updateRoomId(code, false)
+        )
+        dispatch(
+            changeScreen(ScreensTypes.whoAreYouPage, true)
+        )
+    } else {
+        alert("Esta habitación no existe")
     }
 }
