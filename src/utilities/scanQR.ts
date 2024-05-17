@@ -20,6 +20,8 @@ function tick(HTMLVideoElement: HTMLVideoElement, HTMLCanvasElement: HTMLCanvasE
     HTMLCanvasElement.height = HTMLVideoElement.videoHeight;
     HTMLCanvasElement.width = HTMLVideoElement.videoWidth;
 
+    let scaned: boolean = false
+
     if (HTMLCanvasElement.height !== 0) {
         if (canvas) {
             canvas.drawImage(HTMLVideoElement, 0, 0, HTMLCanvasElement.width, HTMLCanvasElement.height)
@@ -29,10 +31,16 @@ function tick(HTMLVideoElement: HTMLVideoElement, HTMLCanvasElement: HTMLCanvasE
                 inversionAttempts: "dontInvert",
             });
             if (code) {
-                console.log(code.data)
+                scaned = true
+                console.log(`Codigo escaneado: ${code.data}`)
+                alert(`Ingresando al probador ${code.data}`)
+
+                setTimeout(() => { tick(HTMLVideoElement, HTMLCanvasElement) }, 1000)
             }
         }
     }
 
-    requestAnimationFrame(() => { tick(HTMLVideoElement, HTMLCanvasElement) })
+    if (!scaned) {
+        requestAnimationFrame(() => { tick(HTMLVideoElement, HTMLCanvasElement) })
+    }
 }
