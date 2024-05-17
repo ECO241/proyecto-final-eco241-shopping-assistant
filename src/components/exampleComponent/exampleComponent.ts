@@ -6,7 +6,7 @@ const enum componentProperties {
     icon = "icon"
 }
 
-export class component extends HTMLElement {
+export class exampleComponent extends HTMLElement {
     properties: Record<componentProperties, string> = {
         icon: ""
     }
@@ -49,4 +49,4 @@ export class component extends HTMLElement {
     }
 }
 
-customElements.define("component-name", component)
+customElements.define("component-name", exampleComponent)

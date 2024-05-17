@@ -2,6 +2,10 @@ export const directorioExport = () => {
 
 }
 
+//Example page
+export { examplePage } from "./pages/examplePage/examplePage"
+export { exampleComponent } from "./components/exampleComponent/exampleComponent"
+
 //Landing page
 export { landingPage } from "./pages/landingPage/landingPage" //landing-page
 
