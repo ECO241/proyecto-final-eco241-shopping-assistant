@@ -21,8 +21,13 @@ export class scanPage extends HTMLElement {
             loadCss(this, styles)
 
             const pageContainer = this.ownerDocument.createElement("div")
+            pageContainer.style.backgroundImage = "url('/src/assets/jpg/black_girl_background_red.jpg')"
             pageContainer.setAttribute("id", "pageContainer")
             this.shadowRoot.appendChild(pageContainer)
+
+            const backgroundBlur = this.ownerDocument.createElement("div")
+            backgroundBlur.setAttribute("id", "backgroundBlur")
+            pageContainer.appendChild(backgroundBlur)
 
             // const codeInput = this.ownerDocument.createElement("input")
             // codeInput.placeholder = "Ingresa el codigo de la sala"
@@ -52,9 +57,17 @@ export class scanPage extends HTMLElement {
             //     }
             // })
 
+            const pageTitle = this.ownerDocument.createElement("h1")
+            pageTitle.innerText = "Escanea el QR"
+            pageContainer.appendChild(pageTitle)
+
+            const videoContainer = this.ownerDocument.createElement("div")
+            videoContainer.setAttribute("id", "videoContainer")
+            pageContainer.appendChild(videoContainer)
+
             const video = document.createElement("video")
             video.setAttribute("id", "video")
-            pageContainer.appendChild(video)
+            videoContainer.appendChild(video)
 
             const canvasElement = document.createElement("canvas")
             canvasElement.setAttribute("class", "hidden")
