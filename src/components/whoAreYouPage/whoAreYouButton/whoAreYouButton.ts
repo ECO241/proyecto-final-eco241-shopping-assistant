@@ -70,7 +70,6 @@ export class whoAreYouButton extends HTMLElement {
                     dispatch(
                         changeScreen(ScreensTypes.waitingForOtherPage, true)
                     )
-                    alert("Buyer")
                 })
             }
 
@@ -89,7 +88,6 @@ export class whoAreYouButton extends HTMLElement {
                     dispatch(
                         changeScreen(ScreensTypes.waitingForOtherPage, true)
                     )
-                    alert("Companion")
                 })
             }
         }

@@ -11,3 +11,9 @@ export const updateRoomId = (payload: string | undefined, reload: boolean): Acti
   payload,
   reload
 });
+
+export const updateUserId = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_USER_ID,
+  payload,
+  reload
+});

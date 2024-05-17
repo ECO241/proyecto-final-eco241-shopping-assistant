@@ -10,7 +10,8 @@ export interface Action {
 
 export enum Actions {
   "CHANGE_SCREEN" = "CHANGE_SCREEN",
-  "UPDATE_ROOM_ID" = "UPDATE_ROOM_ID"
+  "UPDATE_ROOM_ID" = "UPDATE_ROOM_ID",
+  "UPDATE_USER_ID" = "UPDATE_USER_ID"
 }
 
 export interface AppState {
@@ -18,7 +19,7 @@ export interface AppState {
   insideUser: user | undefined
   outsideUser: user | undefined
   sessionClothes: Array<clothes>,
-  userId: string,
+  userId: string | undefined,
   roomId: undefined | string
 }
 

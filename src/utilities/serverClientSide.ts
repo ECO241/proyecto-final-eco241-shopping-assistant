@@ -1,5 +1,5 @@
 import { io } from "socket.io-client"; //Importamos el socket cliente
-import { changeScreen, updateRoomId } from "../store/actions";
+import { changeScreen, updateRoomId, updateUserId } from "../store/actions";
 import { ScreensTypes } from "../types/screens";
 import { dispatch } from "../store";
 
@@ -13,8 +13,10 @@ interface responseRoomData {
 
 //Eventos de socket => Son los que provienen del servidor al cliente
 
-socket.on('pruebaConnection', (data: any) => {
-    console.log(data)
+socket.on('Socket Id', (socketId: string) => {
+    dispatch(
+        updateUserId(socketId, false)
+    )
 })
 
 socket.on('responseRoom', (data: string) => {
@@ -35,6 +37,19 @@ socket.on('responseRoom', (data: string) => {
 socket.on('updateRoomConnectionResponse', (data) => {
     if (data.message === "Error on data type's") {
         alert("Error on types")
+    }
+})
+
+socket.on('privado', async (data: string) => {
+    const dataJson = await JSON.parse(data)
+    console.log("Publico: ")
+    console.log(data)
+    console.log(`Privado socket es: ${socket.id}`)
+    console.log(`Target: ${dataJson.target}`)
+    if (dataJson.target === socket.id) {
+        console.log("Privado: ")
+        console.log(data)
+        alert(data)
     }
 })
 

@@ -10,7 +10,7 @@ export let state: AppState = {
     insideUser: undefined,
     outsideUser: undefined,
     sessionClothes: [],
-    userId: randomString(10),
+    userId: undefined,
     roomId: undefined
 };
 
