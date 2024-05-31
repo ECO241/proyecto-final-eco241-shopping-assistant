@@ -27,6 +27,12 @@ app.get('/', (req: Request, res: Response) => {
     res.send("Prueba")
 })
 
+//Enpoints estaticos
+
 app.use('/televisor', express.static(path.join(__dirname, './public/televisor/index.html')))
 
 app.use('/admin', express.static(path.join(__dirname, './public/admin/index.html')))
+
+//Routers
+
+app.use('/rooms', roomsRouter)

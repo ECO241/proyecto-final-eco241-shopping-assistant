@@ -1,8 +1,5 @@
-import { Request, Response } from 'express'
-
-import express from 'express'
-import { roomsDatabase } from '../serverDatabase'
 import { roomsController } from '../controllers/roomsController'
+import express from 'express'
 export const roomsRouter = express.Router()
 
 roomsRouter.get('/', roomsController.getAllRooms)
