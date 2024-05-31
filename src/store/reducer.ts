@@ -13,6 +13,21 @@ export const reducer = (action: Action, currentState: AppState): AppState => {
         ...currentState,
         roomId: action.payload
       };
+    case Actions.UPDATE_USER_ID:
+      return {
+        ...currentState,
+        userId: action.payload
+      };
+    case Actions.UPDATE_OUTSIDE_USER_ID:
+      return {
+        ...currentState,
+        outsideUser: action.payload
+      };
+    case Actions.UPDATE_INSIDE_USER_ID:
+      return {
+        ...currentState,
+        insideUser: action.payload
+      };
     default:
       return currentState;
   }

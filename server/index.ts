@@ -5,6 +5,8 @@ import { Request, Response } from "express" //Instalando la libreria "@types/exp
 import { roomsRouter } from "./routes/rooms"
 import { httpServer } from "./socket/socket"
 
+import path from 'path'
+
 //Nota de TypeScript
 //Para usar nodemon con typeScript tenemos que istalar esta version de nodemon: npm install --save-dev ts-node nodemon
 
@@ -25,4 +27,6 @@ app.get('/', (req: Request, res: Response) => {
     res.send("Prueba")
 })
 
-app.use('/rooms', roomsRouter)
+app.use('/televisor', express.static(path.join(__dirname, './public/televisor/index.html')))
+
+app.use('/admin', express.static(path.join(__dirname, './public/admin/index.html')))

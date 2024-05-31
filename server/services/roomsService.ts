@@ -13,7 +13,6 @@ export const roomsService = {
         return data
     },
     getRoomById: async (roomId: string) => {
-
         const { data, error } = await supabase
             .from('Rooms')
             .select()
@@ -28,6 +27,7 @@ export const roomsService = {
     updateInsideUserCode: async (roomId: string, insideUserCodeParam: string) => {
         console.log("updateInsideUserCode")
         console.log("Room ID is: " + roomId)
+        
         const { data, error } = await supabase
             .from('Rooms')
             .update({ insideUserCode: insideUserCodeParam })
@@ -39,7 +39,7 @@ export const roomsService = {
         }
         // console.log(error)
         console.log(data)
-        return data
+        return data[0]
     },
     updateOutsideUserCode: async (roomId: string, outsideUserCodeParam: string) => {
         console.log("updateOutsideUserCode")
@@ -52,6 +52,6 @@ export const roomsService = {
         if (error) {
             throw new Error(error.message)
         }
-        return data
+        return data[0]
     }
 }

@@ -10,7 +10,7 @@ export let state: AppState = {
     insideUser: undefined,
     outsideUser: undefined,
     sessionClothes: [],
-    userId: randomString(10),
+    userId: undefined,
     roomId: undefined
 };
 
@@ -20,6 +20,7 @@ export const dispatch = (action: Action) => {
     if (action.reload === true) {
         observers.forEach((o) => o.render());
     }
+    console.log("AppState")
     console.log(state)
 };
 
