@@ -54,6 +54,11 @@ class AppContainer extends HTMLElement {
                     const examplePage = this.ownerDocument.createElement("example-page")
                     this.shadowRoot.appendChild(examplePage)
                     break;
+                case ScreensTypes.sendClothesPage:
+                    console.log("send_clothes-page")
+                    const sendClothesPage = this.ownerDocument.createElement("send_clothes-page")
+                    this.shadowRoot.appendChild(sendClothesPage)
+                    break;
                 default:
                     break;
             }

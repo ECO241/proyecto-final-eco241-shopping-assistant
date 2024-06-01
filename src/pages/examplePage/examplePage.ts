@@ -19,6 +19,8 @@ export class examplePage extends HTMLElement {
 
             const something = this.ownerDocument.createElement('h1');
             something.innerText = "Own Scaffolding"
+            //Para colocarle un id
+            something.setAttribute("id", "exapleId")
             this.shadowRoot.appendChild(something);
 
             const exampleComponent = this.ownerDocument.createElement("component-name")

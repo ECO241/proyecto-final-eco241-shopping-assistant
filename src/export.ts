@@ -35,6 +35,10 @@ export { successfulIcon } from "./components/successfulComponent/successfulCompo
 export { dressingRoomPage } from "./pages/dressingRoomPage/dressingRoomPage" // dressing_room-page
 export { cardDressingRoom } from "./components/cardDressingRoomComponent/cardDressingRoomComponent"
 
+//Send Clothes Page
+
+export { sendClothesPage } from "./pages/sendClothesPage/sendClothesPage"
+
 //Global components
 
 export { header } from "./components/headerComponent/headerComponent" // header-component

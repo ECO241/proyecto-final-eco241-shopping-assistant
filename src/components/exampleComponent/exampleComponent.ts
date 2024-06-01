@@ -43,6 +43,8 @@ export class exampleComponent extends HTMLElement {
 
             const something = this.ownerDocument.createElement("h1")
             something.innerText = "Example Component"
+            //Para colocarle un id
+            something.setAttribute("id", "exapleId")
             this.shadowRoot.appendChild(something)
         }
 

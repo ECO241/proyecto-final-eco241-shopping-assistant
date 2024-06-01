@@ -6,5 +6,6 @@ export enum ScreensTypes {
     "whoAreYouPage" = "whoAreYouPage",
     "waitingForOtherPage" = "waitingForOtherPage",
     "successfulConnectionPage" = "successfulConnectionPage",
-    "dressingRoomPage" = "dressingRoomPage"
+    "dressingRoomPage" = "dressingRoomPage",
+    "sendClothesPage" = "sendClothesPage"
 }
