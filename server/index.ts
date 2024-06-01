@@ -6,6 +6,7 @@ import { roomsRouter } from "./routes/rooms"
 import { httpServer } from "./socket/socket"
 
 import path from 'path'
+import { clothesRouter } from "./routes/clothesRouter"
 
 //Nota de TypeScript
 //Para usar nodemon con typeScript tenemos que istalar esta version de nodemon: npm install --save-dev ts-node nodemon
@@ -36,3 +37,5 @@ app.use('/admin', express.static(path.join(__dirname, './public/admin/index.html
 //Routers
 
 app.use('/rooms', roomsRouter)
+
+app.use('/clothes', clothesRouter)
