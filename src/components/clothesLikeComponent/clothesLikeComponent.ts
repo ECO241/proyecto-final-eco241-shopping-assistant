@@ -4,19 +4,19 @@ import styles from "./clothesLikeComponent.css"
 
 const enum componentProperties {
     img = "img",
-    name = "name"
+    text = "text"
 }
 
 export class clothesLikeComponent extends HTMLElement {
     properties: Record<componentProperties, string> = {
         img: "",
-        name: ""
+        text: ""
     }
 
     static get observedAttributes() {
         const properties: Record<componentProperties, null> = {
             img: null,
-            name: null
+            text: null
         }
         return Object.keys(properties);
     }
@@ -31,8 +31,8 @@ export class clothesLikeComponent extends HTMLElement {
             case componentProperties.img:
                 this.properties.img = newValue
                 break;
-            case componentProperties.name:
-                this.properties.name = newValue
+            case componentProperties.text:
+                this.properties.text = newValue
                 break;
             default:
                 break;
@@ -50,6 +50,34 @@ export class clothesLikeComponent extends HTMLElement {
             const something = this.ownerDocument.createElement("h1")
             something.innerText = "clothesLikeComponent"
             this.shadowRoot.appendChild(something)
+
+            const clothesLikeDiv = this.ownerDocument.createElement("div")
+            clothesLikeDiv.setAttribute("id", "clothesLikeDiv")
+            this.shadowRoot.appendChild(clothesLikeDiv)
+
+            const clothesImg = this.ownerDocument.createElement("img")
+            clothesImg.src = this.properties.img
+            clothesLikeDiv.appendChild(clothesImg)
+
+            const clothesLikeTextDiv = this.ownerDocument.createElement("div")
+            clothesLikeTextDiv.setAttribute("id", "clothesLikeTextDiv")
+            clothesLikeDiv.appendChild(clothesLikeTextDiv)
+
+            const clothesText = this.ownerDocument.createElement("h3")
+            clothesText.innerText = this.properties.text
+            clothesLikeTextDiv.appendChild(clothesText)
+
+            const likeDiv = this.ownerDocument.createElement("div")
+            likeDiv.setAttribute("id", "likeDiv")
+            clothesLikeTextDiv.appendChild(likeDiv)
+
+            const likeButton = this.ownerDocument.createElement("img")
+            likeButton.setAttribute("src", "/src/assets/svg/Like_Button.svg")
+            likeDiv.appendChild(likeButton)
+
+            const dislikeButton = this.ownerDocument.createElement("img")
+            dislikeButton.setAttribute("src", "/src/assets/svg/Dislike_Button.svg")
+            likeDiv.appendChild(dislikeButton)
         }
 
     }

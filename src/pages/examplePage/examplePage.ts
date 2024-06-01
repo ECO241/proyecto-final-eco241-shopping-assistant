@@ -25,6 +25,8 @@ export class examplePage extends HTMLElement {
             this.shadowRoot.appendChild(exampleComponent)
 
             const clothesLikeComponent = this.ownerDocument.createElement("clothes_like-component")
+            clothesLikeComponent.setAttribute("img", "/src/assets/jpg/Top_negro.png")
+            clothesLikeComponent.setAttribute("text", "Top en tiras en tejido negro")
             this.shadowRoot.appendChild(clothesLikeComponent)
         }
     }
