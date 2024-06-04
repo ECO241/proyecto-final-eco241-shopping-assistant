@@ -27,6 +27,8 @@ app.get('/', (req: Request, res: Response) => {
     res.send("Prueba")
 })
 
+app.use("/static", express.static(path.join(__dirname, "../server/public")));
+
 app.use('/televisor', express.static(path.join(__dirname, './public/televisor/index.html')))
 
 app.use('/admin', express.static(path.join(__dirname, './public/admin/index.html')))

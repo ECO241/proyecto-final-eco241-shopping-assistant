@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+.title {
+    position: relative;
+    z-index: 20;
+    top: 110px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    text-align: center;
+}
+.title h1 {
+    font-size: 50px;
+    margin: 10px;
+}
+.title p {
+    font-size: 34px;
+    margin: 5px;
+}
+.banner {
+    position: absolute;
+    z-index: 10;
+    top: -80px;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 20;
+    top: 230px;
+}
+.clothes {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+}
+
+.clothes h4 {
+    text-align: center;
+    margin: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
