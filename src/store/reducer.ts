@@ -28,6 +28,14 @@ export const reducer = (action: Action, currentState: AppState): AppState => {
         ...currentState,
         insideUser: action.payload
       };
+    case Actions.UPDATE_ROOM_DATA:
+      return {
+        ...currentState,
+        roomId: action.payload.id,
+        insideUser: action.payload.insideUserCode,
+        roomName: action.payload.name,
+        outsideUser: action.payload.outsideUserCode
+      };
     default:
       return currentState;
   }

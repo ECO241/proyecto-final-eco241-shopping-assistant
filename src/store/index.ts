@@ -6,12 +6,13 @@ import { reducer } from "./reducer";
 const observers: Observer[] = [];
 
 export let state: AppState = {
-    screen: ScreensTypes.landingPage,
+    screen: ScreensTypes.dressingRoomPage,
     insideUser: undefined,
     outsideUser: undefined,
     sessionClothes: [],
     userId: undefined,
-    roomId: undefined
+    roomId: "aaaaaa",
+    roomName: undefined
 };
 
 export const dispatch = (action: Action) => {

@@ -30,3 +30,4 @@ export { cardDressingRoom } from "./components/cardDressingRoomComponent/cardDre
 //Global components
 
 export { header } from "./components/headerComponent/headerComponent" // header-component
+export { headerComponentBuyer } from "./components/headerComponent/headerComponentBuyer/headerComponentBuyer" //header-component_buyer
