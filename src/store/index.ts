@@ -12,7 +12,8 @@ export let state: AppState = {
     sessionClothes: [],
     userId: undefined,
     roomId: "aaaaaa",
-    roomName: undefined
+    roomName: undefined,
+    sessionCart: []
 };
 
 export const dispatch = (action: Action) => {

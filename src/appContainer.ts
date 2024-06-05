@@ -46,6 +46,9 @@ class AppContainer extends HTMLElement {
                     const dressingRoomPage = this.ownerDocument.createElement("dressing_room-page")
                     this.shadowRoot.appendChild(dressingRoomPage)
                     break;
+                case ScreensTypes.cartPage:
+                    const cartPage = this.ownerDocument.createElement('cart-page')
+                    this.shadowRoot.appendChild(cartPage)
                 default:
                     break;
             }

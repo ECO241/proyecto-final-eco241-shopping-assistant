@@ -27,6 +27,11 @@ export { successfulIcon } from "./components/successfulComponent/successfulCompo
 export { dressingRoomPage } from "./pages/dressingRoomPage/dressingRoomPage" // dressing_room-page
 export { cardDressingRoom } from "./components/cardDressingRoomComponent/cardDressingRoomComponent"
 
+//Cart Page
+
+export { cartPage } from "./pages/cartPage/cartPage" // 'cart-page'
+export { emptyCart } from "./components/cartPage/emptyCart/emptyCart" //empty-cart
+
 //Global components
 
 export { header } from "./components/headerComponent/headerComponent" // header-component

@@ -1,6 +1,9 @@
 import { loadCss } from "../../../utilities/styles";
 import "../../../export";
 import styles from "./headerComponentBuyer.css"
+import { dispatch } from "../../../store";
+import { changeScreen } from "../../../store/actions";
+import { ScreensTypes } from "../../../types/screens";
 
 const enum headerComponentBuyerProperties {
     icon = "icon"
@@ -68,6 +71,12 @@ export class headerComponentBuyer extends HTMLElement {
             bagIcon.setAttribute("src", "/src/assets/svg/Bag Icon.svg")
             bagIcon.setAttribute("id", "bagIcon")
             iconDiv.appendChild(bagIcon)
+
+            bagIcon.addEventListener('click', () => {
+                dispatch(
+                    changeScreen(ScreensTypes.cartPage, true)
+                )
+            })
         }
 
     }

@@ -34,7 +34,8 @@ export const reducer = (action: Action, currentState: AppState): AppState => {
         roomId: action.payload.id,
         insideUser: action.payload.insideUserCode,
         roomName: action.payload.name,
-        outsideUser: action.payload.outsideUserCode
+        outsideUser: action.payload.outsideUserCode,
+        sessionCart: action.payload.cart
       };
     default:
       return currentState;

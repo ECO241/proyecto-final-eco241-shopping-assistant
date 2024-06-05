@@ -25,6 +25,7 @@ export interface AppState {
   userId: string | undefined,
   roomId: undefined | string,
   roomName: undefined | string
+  sessionCart: Array<number>
 }
 
 interface user {
