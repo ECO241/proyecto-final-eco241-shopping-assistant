@@ -29,14 +29,19 @@ body {
     z-index: 20;
     top: 230px;
 }
+.cards img {
+    width: 250px;
+}
 .clothes {
     display: flex;
     gap: 28px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .clothes h4 {
     text-align: center;
+    font-size: 12px;
     margin: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

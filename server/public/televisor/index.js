@@ -1,17 +1,21 @@
-const products = [
-    { imgSrc: "http://localhost:5500/static/televisor/assets/jpg/Chiffon.jpg", name: "Vestido Chiffon", price: "$150.000" },
-    { imgSrc: "http://localhost:5500/static/televisor/assets/jpg/Satin.jpg", name: "Vestido Satín V", price: "$115.000" },
-    { imgSrc: "http://localhost:5500/static/televisor/assets/jpg/White.jpg", name: "Oversize White T", price: "$80.000" },
-    { imgSrc: "http://localhost:5500/static/televisor/assets/jpg/Rosa.jpg", name: "Vestido Rosa", price: "$110.000" },
-    { imgSrc: "http://localhost:5500/static/televisor/assets/jpg/Encaje.jpg", name: "Vestido Encaje V", price: "$150.000" },
-    { imgSrc: "http://localhost:5500/static/televisor/assets/jpg/Estampado.jpg", name: "Estampado V", price: "$120.000" }
-];
+async function fetchProducts() {
+    try {
+        const response = await fetch('http://localhost:5500/clothes/popular');
+        if (!response.ok) {
+            throw new Error('Error al obtener los datos de los productos');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error(error);
+        return []; 
+    }
+}
 
 function createCard(product) {
     const card = document.createElement('div');
     
     const img = document.createElement('img');
-    img.src = product.imgSrc;
+    img.src = product.image;
     
     const name = document.createElement('h4');
     name.textContent = product.name;
@@ -26,12 +30,20 @@ function createCard(product) {
     return card;
 }
 
-function renderCards() {
+async function renderCards() {
     const cardsContainer = document.querySelector('.cards .clothes');
-    products.forEach(product => {
-        const card = createCard(product);
-        cardsContainer.appendChild(card);
-    });
+    const productsResponse = await fetchProducts();
+
+    if (productsResponse.success) {
+        const products = productsResponse.clothesByPopularity;
+
+        products.forEach(product => {
+            const card = createCard(product);
+            cardsContainer.appendChild(card);
+        });
+    } else {
+        console.error('Hubo un error al obtener los datos de los productos');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', renderCards);

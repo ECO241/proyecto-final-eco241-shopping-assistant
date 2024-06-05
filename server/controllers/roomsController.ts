@@ -17,7 +17,6 @@ export const roomsController = {
     getRoomById: async (req: Request, res: Response) => {
         try {
             const id = req.params.id
-            console.log(id)
             const data = await roomsService.getRoomById(id)
             res.json({ success: true, data })
         } catch (error: any) {
