@@ -6,6 +6,16 @@ import { roomsRouter } from "./routes/rooms"
 import { httpServer } from "./socket/socket"
 
 import path from 'path'
+
+//Multer (Libreria para subir imagenes)
+const multer = require("multer");
+const storage = multer.memoryStorage();
+export const upload = multer({ storage: storage });
+
+// export interface MulterRequest extends Request {
+//     file: any;
+// }
+
 import { clothesRouter } from "./routes/clothesRouter"
 import { messagesRouter } from "./routes/messagesRouter"
 

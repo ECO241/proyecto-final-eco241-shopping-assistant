@@ -21,10 +21,14 @@ export const messagesController = {
             res.status(500).json({ success: false, error: "Internal Server Error" });
         }
     },
-    postMessage: async (req: Request, res: Response) => {
+    postMessage: async (req: any, res: Response) => {
         try {
+            
             const body = req.body
-            await messageService.postMessageSupabase(body)
+            const file = req.file
+
+            await messageService.postMessageSupabase(body, file)
+
             res.send("message posted successfully")
         } catch (error: any) {
             console.error("Error retrieving data from Supabase:", error.message);
