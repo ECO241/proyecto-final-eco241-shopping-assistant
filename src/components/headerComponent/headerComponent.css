@@ -17,10 +17,16 @@
 
 #iconDiv {
     margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#chatIcon{
+  margin-right: 10px;
 }
 
 #camaraIcon {
   width: 26.4px;
   height: 22px;
-  margin-right: 20px;
+  margin-right: 10px;
 }
