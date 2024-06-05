@@ -5,4 +5,6 @@ export const clothesRouter = express.Router()
 
 clothesRouter.get('/', clothesControllers.getAllClothes)
 
-clothesRouter.get('/:id', clothesControllers.getClotheById)
+clothesRouter.get('/clothe/:id', clothesControllers.getClotheById)
+
+clothesRouter.get('/popular', clothesControllers.getClotheByPopularity)

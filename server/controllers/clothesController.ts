@@ -20,5 +20,14 @@ export const clothesControllers = {
             console.error("Error retrieving data from Supabase:", error);
             res.status(500).json({ success: false, error: "Internal Server Error" });
         }
+    },
+    getClotheByPopularity: async (req: Request, res: Response) => {
+        try {
+            const clothesByPopularity = await clothesServices.getClotheByPopularity()
+            res.json({ success: true, clothesByPopularity })
+        } catch (error) {
+            console.error("Error retrieving data from Supabase:", error);
+            res.status(500).json({ success: false, error: "Internal Server Error" });
+        }
     }
 }

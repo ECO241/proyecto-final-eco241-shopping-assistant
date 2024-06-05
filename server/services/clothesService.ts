@@ -13,10 +13,21 @@ export const clothesServices = {
         return data
     },
     getClotheByIdSupabase: async (id: number) => {
+        console.log("Ropa by id")
         const { data, error } = await supabase
             .from('clothes')
             .select()
             .eq('id', id)
+        if (error) {
+            throw new Error(error.message)
+        }
+        return data
+    },
+    getClotheByPopularity: async () => {
+        const { data, error } = await supabase
+            .from('clothes')
+            .select()
+            .order('popularity', { ascending: false })
         if (error) {
             throw new Error(error.message)
         }
