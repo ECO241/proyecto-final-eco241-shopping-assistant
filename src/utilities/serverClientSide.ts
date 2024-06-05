@@ -82,3 +82,8 @@ socket.on('privado', async (data: string) => {
     }
 })
 
+socket.on('changeToDressingRoom', (data) => {
+    dispatch(
+        changeScreen(ScreensTypes.dressingRoomPage, true)
+    )
+})

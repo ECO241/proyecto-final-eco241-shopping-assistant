@@ -65,6 +65,7 @@ export const roomsController = {
                     message: roomNewData.insideUserCode,
                     type: "updateInsideUser"
                 }))
+                io.emit('changeToDressingRoom', 'message')
             }
 
             res.json(roomNewData)
