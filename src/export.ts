@@ -28,16 +28,20 @@ export { loadingIcon } from "./components/loadingComponent/loadingComponent" // 
 //Successful Conection Page
 
 export { successfulConnectionPage } from "./pages/successfulConnectionPage/successfulConnectionPage" // successful_connection-page
-export { successfulIcon } from "./components/successfulComponent/successfulComponent"
+export { successfulIcon } from "./components/successfulComponent/successfulComponent" // successful-icon
 
 // Dressing Room Page
 
 export { dressingRoomPage } from "./pages/dressingRoomPage/dressingRoomPage" // dressing_room-page
-export { cardDressingRoom } from "./components/cardDressingRoomComponent/cardDressingRoomComponent"
+export { cardDressingRoom } from "./components/cardDressingRoomComponent/cardDressingRoomComponent" // card_dressing_room-component
 
 //Send Clothes Page
 
-export { sendClothesPage } from "./pages/sendClothesPage/sendClothesPage"
+export { sendClothesPage } from "./pages/sendClothesPage/sendClothesPage" // send_clothes-page
+
+//Buyer Recommneded Page
+
+export { buyerRecommendedPage } from "./pages/buyerRecommendedPage/buyerRecommendedPage" // buyer_recommended-page
 
 //Global components
 
