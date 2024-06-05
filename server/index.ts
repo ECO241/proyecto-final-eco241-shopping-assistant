@@ -7,6 +7,7 @@ import { httpServer } from "./socket/socket"
 
 import path from 'path'
 import { clothesRouter } from "./routes/clothesRouter"
+import { messagesRouter } from "./routes/messagesRouter"
 
 //Nota de TypeScript
 //Para usar nodemon con typeScript tenemos que istalar esta version de nodemon: npm install --save-dev ts-node nodemon
@@ -30,6 +31,8 @@ app.get('/', (req: Request, res: Response) => {
 
 //Enpoints estaticos
 
+app.use("/static", express.static(path.join(__dirname, "../server/public")));
+
 app.use('/televisor', express.static(path.join(__dirname, './public/televisor/index.html')))
 
 app.use('/admin', express.static(path.join(__dirname, './public/admin/index.html')))
@@ -39,3 +42,5 @@ app.use('/admin', express.static(path.join(__dirname, './public/admin/index.html
 app.use('/rooms', roomsRouter)
 
 app.use('/clothes', clothesRouter)
+
+app.use('/messages', messagesRouter)
