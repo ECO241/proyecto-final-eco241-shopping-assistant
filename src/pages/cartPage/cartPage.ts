@@ -35,9 +35,6 @@ export class cartPage extends HTMLElement {
                 pageContainer.appendChild(header)
             }
 
-            const header = this.ownerDocument.createElement("header-component_buyer")
-            pageContainer.appendChild(header)
-
             const buyAllButton = this.ownerDocument.createElement("button")
             buyAllButton.setAttribute("id", "buyAllButton")
             buyAllButton.innerText = "Pagar Total"
@@ -89,7 +86,7 @@ export class cartPage extends HTMLElement {
             })
         }
     }
-    
+
 
     async getClothes() {
         const data: Array<any> = []

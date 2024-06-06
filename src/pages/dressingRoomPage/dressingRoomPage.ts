@@ -36,9 +36,6 @@ export class dressingRoomPage extends HTMLElement {
                 pageContainer.appendChild(header)
             }
 
-            const header = this.ownerDocument.createElement("header-component_buyer")
-            pageContainer.appendChild(header)
-
             const welcomeSection = this.ownerDocument.createElement("div")
             welcomeSection.setAttribute("id", "welcomeSection")
             pageContainer.appendChild(welcomeSection)
