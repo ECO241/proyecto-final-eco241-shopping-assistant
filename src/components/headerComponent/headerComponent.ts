@@ -54,19 +54,15 @@ export class header extends HTMLElement {
             iconDiv.setAttribute("id", "iconDiv")
             bar.appendChild(iconDiv)
 
+            const chatIcon = this.ownerDocument.createElement("img")
+            chatIcon.setAttribute("src", "/src/assets/svg/usersChat.svg")
+            chatIcon.setAttribute("id", "chatIcon")
+            iconDiv.appendChild(chatIcon)
+
             const camaraIcon = this.ownerDocument.createElement("img")
-            camaraIcon.setAttribute("src","/src/assets/svg/Camara Icon.svg")
+            camaraIcon.setAttribute("src", "/src/assets/svg/Camara Icon.svg")
             camaraIcon.setAttribute("id", "camaraIcon")
             iconDiv.appendChild(camaraIcon)
-
-            const bagIcon = this.ownerDocument.createElement("img")
-            bagIcon.setAttribute("src","/src/assets/svg/Bag Icon.svg")
-            bagIcon.setAttribute("id", "bagIcon")
-            iconDiv.appendChild(bagIcon)
-
-            // const something = this.ownerDocument.createElement("h1")
-            // something.innerText = "Example Component"
-            // this.shadowRoot.appendChild(something)
         }
 
     }

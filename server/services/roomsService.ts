@@ -17,32 +17,23 @@ export const roomsService = {
             .from('Rooms')
             .select()
             .eq('id', roomId)
-            .maybeSingle()
-
         if (error) {
             throw new Error(error.message)
         }
         return data
     },
     updateInsideUserCode: async (roomId: string, insideUserCodeParam: string) => {
-        console.log("updateInsideUserCode")
-        console.log("Room ID is: " + roomId)
-        
         const { data, error } = await supabase
             .from('Rooms')
             .update({ insideUserCode: insideUserCodeParam })
             .eq('id', roomId)
             .select()
-        console.log("Finalizo")
         if (error) {
             throw new Error(error.message)
         }
-        // console.log(error)
-        console.log(data)
         return data[0]
     },
     updateOutsideUserCode: async (roomId: string, outsideUserCodeParam: string) => {
-        console.log("updateOutsideUserCode")
         const { data, error } = await supabase
             .from('Rooms')
             .update({ outsideUserCode: outsideUserCodeParam })
@@ -53,5 +44,21 @@ export const roomsService = {
             throw new Error(error.message)
         }
         return data[0]
+    },
+    addClothesToCartSupabase: async (roomId: string, prendaId: string) => {
+        const roomData = await roomsService.getRoomById(roomId)
+        const roomCart = roomData[0].cart
+
+        roomCart.push(parseInt(prendaId))
+
+
+        const { error } = await supabase
+            .from('Rooms')
+            .update({ cart: roomCart })
+            .eq('id', roomId)
+
+        if (error) {
+            throw new Error(error.message)
+        }
     }
 }

@@ -1,0 +1,63 @@
+#askForClothesDiv {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background: rgba(217, 217, 217, 0.20);
+    box-shadow: 0px 4px 16px 2px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(25px);
+
+    padding: 20px;
+}
+
+img {
+    margin-right: 15px;
+}
+
+#clothesText {
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#clothesPrice {
+    font-size: medium;
+    color: #CC071E;
+    margin-top: 0px;
+}
+
+#sizesDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#sizeText{
+    margin: 0px;
+}
+
+.sizeButton{
+    width: 30px;
+    height: 24px;
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 5px;
+    background: #D9D9D9;
+
+    margin-left: 5px;
+}
+
+#askButton{
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight:400;
+    line-height: normal;
+
+    border-radius: 5px;
+    background: #CC071E;
+    border: none;
+
+    padding: 8px 10px;
+    margin-top: 20px;
+}

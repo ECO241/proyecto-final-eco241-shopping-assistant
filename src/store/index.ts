@@ -6,12 +6,14 @@ import { reducer } from "./reducer";
 const observers: Observer[] = [];
 
 export let state: AppState = {
-    screen: ScreensTypes.landingPage,
-    insideUser: undefined,
+    screen: ScreensTypes.addToCartPage,
+    insideUser: "m-_RNlHDyNNXDDODAAAB",
     outsideUser: undefined,
     sessionClothes: [],
-    userId: undefined,
-    roomId: undefined
+    userId: "m-_RNlHDyNNXDDODAAAB",
+    roomId: "aaaaaa",
+    roomName: undefined,
+    sessionCart: []
 };
 
 export const dispatch = (action: Action) => {

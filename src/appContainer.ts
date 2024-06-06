@@ -46,6 +46,31 @@ class AppContainer extends HTMLElement {
                     const dressingRoomPage = this.ownerDocument.createElement("dressing_room-page")
                     this.shadowRoot.appendChild(dressingRoomPage)
                     break;
+                case ScreensTypes.cartPage:
+                    const cartPage = this.ownerDocument.createElement('cart-page')
+                    this.shadowRoot.appendChild(cartPage)
+                    break
+                case ScreensTypes.examplePage:
+                    console.log("example-page")
+                    const examplePage = this.ownerDocument.createElement("example-page")
+                    this.shadowRoot.appendChild(examplePage)
+                    break;
+                case ScreensTypes.sendClothesPage:
+                    console.log("send_clothes-page")
+                    const sendClothesPage = this.ownerDocument.createElement("send_clothes-page")
+                    this.shadowRoot.appendChild(sendClothesPage)
+                    break;
+                case ScreensTypes.buyerRecommendedPage:
+                    console.log("send_clothes-page")
+                    const buyerRecommendedPage = this.ownerDocument.createElement("buyer_recommended-page")
+                    this.shadowRoot.appendChild(buyerRecommendedPage)
+                    break;
+                case ScreensTypes.addToCartPage:
+                    const addToCartPage = this.ownerDocument.createElement('add_to_cart-page')
+                    this.shadowRoot.appendChild(addToCartPage)
+                case ScreensTypes.pickUpPage:
+                    const pickUpPage = this.ownerDocument.createElement('pick_up-page')
+                    this.shadowRoot.appendChild(pickUpPage)
                 default:
                     break;
             }

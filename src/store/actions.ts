@@ -29,3 +29,9 @@ export const updateInsideUserId = (payload: string, reload: boolean): Action => 
   payload,
   reload
 });
+
+export const updateRoomData = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_ROOM_DATA,
+  payload,
+  reload
+});

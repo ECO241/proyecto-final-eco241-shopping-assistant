@@ -17,7 +17,6 @@ export const roomsController = {
     getRoomById: async (req: Request, res: Response) => {
         try {
             const id = req.params.id
-            console.log(id)
             const data = await roomsService.getRoomById(id)
             res.json({ success: true, data })
         } catch (error: any) {
@@ -66,11 +65,25 @@ export const roomsController = {
                     message: roomNewData.insideUserCode,
                     type: "updateInsideUser"
                 }))
+                io.emit('changeToDressingRoom', 'message')
             }
 
             res.json(roomNewData)
         } catch (error: any) {
             console.error("Error retrieving data from Supabase:", error.message);
+            res.status(500).json({ success: false, error: "Internal Server Error" });
+        }
+    },
+    addClothesToCart: async (req: Request, res: Response) => {
+        try {
+            const id = req.params.id
+            const roomId = req.params.roomId
+
+            await roomsService.addClothesToCartSupabase(roomId, id)
+
+            res.send(`Inserted prenda ${id} to cart from room with id ${roomId}`)
+        } catch (error) {
+            console.error("Error retrieving data from Supabase:", error);
             res.status(500).json({ success: false, error: "Internal Server Error" });
         }
     }

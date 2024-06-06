@@ -7,6 +7,18 @@ import { httpServer } from "./socket/socket"
 
 import path from 'path'
 
+//Multer (Libreria para subir imagenes)
+const multer = require("multer");
+const storage = multer.memoryStorage();
+export const upload = multer({ storage: storage });
+
+// export interface MulterRequest extends Request {
+//     file: any;
+// }
+
+import { clothesRouter } from "./routes/clothesRouter"
+import { messagesRouter } from "./routes/messagesRouter"
+
 //Nota de TypeScript
 //Para usar nodemon con typeScript tenemos que istalar esta version de nodemon: npm install --save-dev ts-node nodemon
 
@@ -27,6 +39,18 @@ app.get('/', (req: Request, res: Response) => {
     res.send("Prueba")
 })
 
+//Enpoints estaticos
+
+app.use("/static", express.static(path.join(__dirname, "../server/public")));
+
 app.use('/televisor', express.static(path.join(__dirname, './public/televisor/index.html')))
 
 app.use('/admin', express.static(path.join(__dirname, './public/admin/index.html')))
+
+//Routers
+
+app.use('/rooms', roomsRouter)
+
+app.use('/clothes', clothesRouter)
+
+app.use('/messages', messagesRouter)
