@@ -30,6 +30,11 @@ export class cartPage extends HTMLElement {
                 pageContainer.appendChild(header)
             }
             
+            const buyAllButton = this.ownerDocument.createElement("button")
+            buyAllButton.setAttribute("id", "buyAllButton")
+            buyAllButton.innerText = "Pagar Total"
+            pageContainer.appendChild(buyAllButton)
+
             const cardsContainer = this.ownerDocument.createElement("div")
             cardsContainer.setAttribute("id", "cardsContainer")
             pageContainer.appendChild(cardsContainer)
