@@ -12,15 +12,21 @@ async function fetchRoomStatus() {
 }
 
 function createRoomCard(room) {
-    const card = document.createElement('div');
+    const card = document.createElement('cards');
     card.classList.add('room-card');
-    card.style.backgroundColor = room.status === 'occupied' ? 'red' : 'gray';
+    
+    //card.style.backgroundColor = room.status === 'occupied' ? 'red' : 'gray';
 
     const name = document.createElement('h4');
     name.textContent = room.name;
 
     const status = document.createElement('h4');
-    status.textContent = room.status === 'occupied' ? 'Ocupado' : 'Libre';
+    if (room.insideUserCode === "") {
+        status.textContent = 'Libre';
+    } else {
+        status.textContent = 'Ocupado';
+
+    }
 
     card.appendChild(name);
     card.appendChild(status);
@@ -29,19 +35,20 @@ function createRoomCard(room) {
 }
 
 async function renderRoomCards() {
-    const cardsContainer = document.querySelector('.cards .rooms');
-    cardsContainer.innerHTML = '';
+    const cardsContainer = document.getElementById("cardsContainer");
+    console.log(cardsContainer)
     const roomsResponse = await fetchRoomStatus();
+    console.log(roomsResponse)
 
     if (roomsResponse.success) {
-        const rooms = roomsResponse.rooms;
 
-        rooms.forEach(room => {
+        roomsResponse.data.forEach(room => {
             const card = createRoomCard(room);
+            console.log(card)
             cardsContainer.appendChild(card);
         });
     } else {
-        console.error('Hubo un error al obtener los datos de los probadores');
+        console.error('Hubo un error al obtener los datos de los probadores o la estructura de la respuesta es incorrecta');
     }
 }
 
