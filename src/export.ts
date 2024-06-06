@@ -55,6 +55,10 @@ export { emptyCart } from "./components/cartPage/emptyCart/emptyCart" //empty-ca
 export { addToCartPage } from "./pages/addToCartPage/addToCartPage" // add_to_cart-page
 export { addToCartComponent } from "./components/addToCartComponent/addToCartComponent" // add_to_cart-page
 
+//Pick up Page
+
+export { pickUpPage } from "./pages/pickUpPage/pickUpPage" //pick_up-page
+
 //Global components
 
 export { header } from "./components/headerComponent/headerComponent" // header-component

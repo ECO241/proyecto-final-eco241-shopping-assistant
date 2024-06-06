@@ -6,7 +6,7 @@ import { reducer } from "./reducer";
 const observers: Observer[] = [];
 
 export let state: AppState = {
-    screen: ScreensTypes.addToCartPage,
+    screen: ScreensTypes.pickUpPage,
     insideUser: undefined,
     outsideUser: undefined,
     sessionClothes: [],
