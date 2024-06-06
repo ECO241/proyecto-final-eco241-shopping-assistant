@@ -31,7 +31,9 @@ export class buyerRecommendedPage extends HTMLElement {
 
             const clothesLikeComponent = this.ownerDocument.createElement("clothes_like-component")
             clothesLikeComponent.setAttribute("img", "/src/assets/jpg/Top_negro.png")
+            clothesLikeComponent.setAttribute("price", "114,000")
             clothesLikeComponent.setAttribute("text", "Top en tiras en tejido negro")
+            console.log(clothesLikeComponent.attributes)
             this.shadowRoot.appendChild(clothesLikeComponent)
         }
     }

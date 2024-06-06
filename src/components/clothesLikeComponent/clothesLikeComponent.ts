@@ -4,18 +4,21 @@ import styles from "./clothesLikeComponent.css"
 
 const enum componentProperties {
     img = "img",
+    price = "price",
     text = "text"
 }
 
 export class clothesLikeComponent extends HTMLElement {
     properties: Record<componentProperties, string> = {
         img: "",
+        price: "",
         text: ""
     }
 
     static get observedAttributes() {
         const properties: Record<componentProperties, null> = {
             img: null,
+            price: null,
             text: null
         }
         return Object.keys(properties);
@@ -30,6 +33,9 @@ export class clothesLikeComponent extends HTMLElement {
         switch (propName) {
             case componentProperties.img:
                 this.properties.img = newValue
+                break;
+            case componentProperties.price:
+                this.properties.price = newValue
                 break;
             case componentProperties.text:
                 this.properties.text = newValue
@@ -66,6 +72,11 @@ export class clothesLikeComponent extends HTMLElement {
             const clothesText = this.ownerDocument.createElement("h3")
             clothesText.innerText = this.properties.text
             clothesLikeTextDiv.appendChild(clothesText)
+
+            const clothesPrice = this.ownerDocument.createElement("h3")
+            clothesPrice.setAttribute("id", "clothesPrice")
+            clothesPrice.innerText = `$ ${this.properties.price}`
+            clothesLikeTextDiv.appendChild(clothesPrice)
 
             const likeDiv = this.ownerDocument.createElement("div")
             likeDiv.setAttribute("id", "likeDiv")
