@@ -86,5 +86,19 @@ export const roomsController = {
             console.error("Error retrieving data from Supabase:", error);
             res.status(500).json({ success: false, error: "Internal Server Error" });
         }
+    },
+
+    deleteClothesToCart: async (req: Request, res: Response) => {
+        try {
+            const id = req.params.id
+            const roomId = req.params.roomId
+
+            await roomsService.deleteClothesToCartSupabase(roomId, id)
+
+            res.send(`Deleted prenda ${id} to cart from room with id ${roomId}`)
+        } catch (error) {
+            console.error("Error retrieving data from Supabase:", error);
+            res.status(500).json({ success: false, error: "Internal Server Error" });
+        }
     }
 }

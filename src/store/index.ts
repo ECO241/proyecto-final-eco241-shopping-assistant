@@ -3,7 +3,7 @@ import { Action, AppState, Observer } from "../types/store";
 import { randomString } from "../utilities/randomString";
 import { reducer } from "./reducer";
 
-const observers: Observer[] = [];
+export const observers: Observer[] = [];
 
 export let state: AppState = {
     screen: ScreensTypes.addToCartPage,

@@ -56,6 +56,7 @@ export class cartPage extends HTMLElement {
                         clotheCard.setAttribute("img", clothe.image)
                         clotheCard.setAttribute("name", clothe.name)
                         clotheCard.setAttribute("price", clothe.price)
+                        clotheCard.setAttribute("id", clothe.id)
                         cardsContainer.appendChild(clotheCard)
                     })
                 }

@@ -1,25 +1,30 @@
 import { loadCss } from "../../../utilities/styles";
 import "../../../export";
 import styles from "./cartCard.css"
+import { observers, state } from "../../../store";
+import { getRoomData } from "../../../utilities/getRoomData";
 
 const enum cartCardProperties {
     img = "img",
     name = "name",
-    price = "price"
+    price = "price",
+    id = "id"
 }
 
 export class cartCard extends HTMLElement {
     properties: Record<cartCardProperties, string> = {
         img: "",
         name: "",
-        price: ""
+        price: "",
+        id: ""
     }
 
     static get observedAttributes() {
         const properties: Record<cartCardProperties, null> = {
             img: null,
             name: null,
-            price: null
+            price: null,
+            id: null
         }
         return Object.keys(properties);
     }
@@ -39,6 +44,9 @@ export class cartCard extends HTMLElement {
                 break;
             case cartCardProperties.price:
                 this.properties.price = newValue
+                break;
+            case cartCardProperties.id:
+                this.properties.id = newValue
                 break;
             default:
                 break;
@@ -81,6 +89,14 @@ export class cartCard extends HTMLElement {
             const deleteIcon = this.ownerDocument.createElement("img")
             deleteIcon.setAttribute("src", "/src/assets/svg/deleteBlanco.svg")
             deleteButton.appendChild(deleteIcon)
+
+
+            //apojdhaj
+            deleteButton.addEventListener('click', async () => {
+                console.log("Delete Prenda")
+                const response = await fetch(`http://localhost:5500/rooms/${state.roomId}/clothes/${this.properties.id}/delete`, { method: 'PATCH' })
+                observers.forEach((o) => o.render());
+            })
         }
 
     }

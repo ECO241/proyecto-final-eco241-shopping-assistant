@@ -60,5 +60,29 @@ export const roomsService = {
         if (error) {
             throw new Error(error.message)
         }
+    },
+
+    deleteClothesToCartSupabase: async (roomId: string, prendaId: string) => {
+        const roomData = await roomsService.getRoomById(roomId)
+        const roomCart = roomData[0].cart
+
+        console.log(roomCart)
+
+        //roomCart.push(parseInt(prendaId))
+        const index = roomCart.indexOf(prendaId);
+
+        roomCart.splice(index, 1);
+
+
+        console.log(roomCart)
+
+        const { error } = await supabase
+            .from('Rooms')
+            .update({ cart: roomCart })
+            .eq('id', roomId)
+
+        if (error) {
+            throw new Error(error.message)
+        }
     }
 }
