@@ -5,24 +5,27 @@ import styles from "./addToCartComponent.css"
 const enum componentProperties {
     img = "img",
     price = "price",
-    text = "text",
-    size = "size"
+    name = "name",
+    popularity = "popularity",
+    id = "id"
 }
 
 export class addToCartComponent extends HTMLElement {
     properties: Record<componentProperties, string> = {
         img: "",
         price: "",
-        text: "",
-        size: ""
+        name: "",
+        popularity: "",
+        id: ""
     }
 
     static get observedAttributes() {
         const properties: Record<componentProperties, null> = {
             img: null,
             price: null,
-            text: null,
-            size: null
+            name: null,
+            popularity: null,
+            id: null
         }
         return Object.keys(properties);
     }
@@ -40,11 +43,14 @@ export class addToCartComponent extends HTMLElement {
             case componentProperties.price:
                 this.properties.price = newValue
                 break;
-            case componentProperties.text:
-                this.properties.text = newValue
+            case componentProperties.id:
+                this.properties.id = newValue
                 break;
-            case componentProperties.size:
-                this.properties.size = newValue
+            case componentProperties.name:
+                this.properties.name = newValue
+                break;
+            case componentProperties.popularity:
+                this.properties.popularity = newValue
                 break;
             default:
                 break;
@@ -73,13 +79,13 @@ export class addToCartComponent extends HTMLElement {
 
             const clothesText = this.ownerDocument.createElement("h3")
             clothesText.setAttribute("id", "clothesText")
-            clothesText.innerText = this.properties.text
+            clothesText.innerText = this.properties.name
             addToCartTextDiv.appendChild(clothesText)
 
-            const clothesSize = this.ownerDocument.createElement("h3")
-            clothesSize.setAttribute("id", "clothesSize")
-            clothesSize.innerText = `Talla: ${this.properties.size}`
-            addToCartTextDiv.appendChild(clothesSize)
+            // const clothesSize = this.ownerDocument.createElement("h3")
+            // clothesSize.setAttribute("id", "clothesSize")
+            // clothesSize.innerText = `Talla: ${this.properties.size}`
+            // addToCartTextDiv.appendChild(clothesSize)
 
             const clothesPrice = this.ownerDocument.createElement("h3")
             clothesPrice.setAttribute("id", "clothesPrice")
@@ -93,6 +99,10 @@ export class addToCartComponent extends HTMLElement {
             const addIcon = this.ownerDocument.createElement("img")
             addIcon.setAttribute('src', '/src/assets/svg/plusIconBlanco.svg')
             addButton.appendChild(addIcon)
+
+            addIcon.addEventListener('click', () => {
+                console.log(this.properties.id)
+            })
         }
 
     }

@@ -13,7 +13,7 @@ export class addToCartPage extends HTMLElement {
         this.render()
     }
 
-    render() {
+    async render() {
         if (this.shadowRoot) {
             loadCss(this, styles)
 
@@ -42,15 +42,38 @@ export class addToCartPage extends HTMLElement {
             searchInput.placeholder = "Busca una prenda por su codigo"
             searchDiv.appendChild(searchInput)
 
-            const addToCartComponent = this.ownerDocument.createElement("add_to_cart-component")
-            addToCartComponent.setAttribute("img", "/src/assets/jpg/Top_negro.png")
-            addToCartComponent.setAttribute("price", "114,000")
-            addToCartComponent.setAttribute("text", "Top en tiras en tejido negro")
-            addToCartComponent.setAttribute("size", "S")
-            contentDiv.appendChild(addToCartComponent)
+            const dataRopa = await this.getClothes()
+            dataRopa.forEach((prenda: prendaType) => {
+                const addToCartComponent = this.ownerDocument.createElement("add_to_cart-component")
+
+                addToCartComponent.setAttribute("img", `${prenda.image}`)
+                addToCartComponent.setAttribute("price", `${prenda.price}`)
+                addToCartComponent.setAttribute("name", "Top en tiras en tejido negro")
+                addToCartComponent.setAttribute("popularity", `${prenda.popularity}`)
+                addToCartComponent.setAttribute("id", `${prenda.id}`)
+
+                contentDiv.appendChild(addToCartComponent)
+            })
 
         }
+    }
+
+    async getClothes() {
+        const dataClothes = await fetch('http://localhost:5500/clothes')
+        const dataClothesJson = await dataClothes.json()
+        return dataClothesJson.clothes
     }
 }
 
 customElements.define('add_to_cart-page', addToCartPage)
+
+interface prendaType {
+    created_at: string,
+    gender: string,
+    id: number,
+    image: string,
+    name: string,
+    popularity: number,
+    price: number,
+    type: string
+}
