@@ -4,8 +4,11 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+div,
+empty-cart {
     margin: 0;
+    font-family: "Lato", sans-serif;
 }
 
 @media only screen and (min-width: 360px) and (max-width: 435px) {

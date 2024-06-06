@@ -29,10 +29,7 @@ export class cartPage extends HTMLElement {
                 const header = this.ownerDocument.createElement("header-component")
                 pageContainer.appendChild(header)
             }
-
-            const header = this.ownerDocument.createElement("header-component_buyer")
-            pageContainer.appendChild(header)
-
+            
             const cardsContainer = this.ownerDocument.createElement("div")
             cardsContainer.setAttribute("id", "cardsContainer")
             pageContainer.appendChild(cardsContainer)
