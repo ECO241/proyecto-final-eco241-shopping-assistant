@@ -1,4 +1,5 @@
 export enum ScreensTypes {
+    "examplePage" = "examplePage",
     "landingPage" = "landingPage",
     "scanPage" = "scanPage",
     "mainPage" = "mainPage",
@@ -6,5 +7,9 @@ export enum ScreensTypes {
     "waitingForOtherPage" = "waitingForOtherPage",
     "successfulConnectionPage" = "successfulConnectionPage",
     "dressingRoomPage" = "dressingRoomPage",
-    "cartPage" = "cartPage"
+    "cartPage" = "cartPage",
+    "sendClothesPage" = "sendClothesPage",
+    "buyerRecommendedPage" = "buyerRecommendedPage",
+    "addToCartPage" = "addToCartPage",
+    "pickUpPage" = "pickUpPage"
 }
