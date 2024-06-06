@@ -4,11 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Admin</title>
+
+    <style>
+        body {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin: 0;
+        }
+
+        header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 38px #c0c0c0;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        }
+
+        .logo-container {
+        margin: 0 50px 0 50px;
+        }
+
+        .container {
+        margin: 0 50px 0 50px;
+        }
+
+        .cards {
+        display: flex;
+        justify-content: space-around;
+        }
+
+        .room-card {
+        background-color: #F7F7F7;
+        width: 180px;
+        padding-left: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 38px #adadad;
+        }
+
+    </style>
 </head>
 
 <body>
-    <h1>Admin</h1>
+    <header>
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="logo" height="60px">
+        </div>
+    </header>
+    <div class="container">
+    <h1>SALAS</h1>
+    <div class="cards" id="cardsContainer">
+        <div class="room-card'"></div>
+    </div>
+    </div>
+    <script src="http://localhost:5500/static/admin/index.js"></script>
 </body>
-
 </html>
