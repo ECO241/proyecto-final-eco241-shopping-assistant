@@ -13,7 +13,7 @@ export class cartPage extends HTMLElement {
         this.render()
     }
 
-    render() {
+    async render() {
         if (this.shadowRoot) {
             loadCss(this, styles)
 
@@ -41,6 +41,19 @@ export class cartPage extends HTMLElement {
                 console.log("Empty Cart")
                 const emptyCartComponent = this.ownerDocument.createElement("empty-cart")
                 cardsContainer.appendChild(emptyCartComponent)
+            } else {
+                const cart = await this.getClothes()
+
+                if (cart) {
+                    cart.forEach((clothe) => {
+                        const clotheCard = this.ownerDocument.createElement("cart-card")
+                        clotheCard.setAttribute("img", clothe.image)
+                        clotheCard.setAttribute("name", clothe.name)
+                        clotheCard.setAttribute("price", clothe.price)
+                        cardsContainer.appendChild(clotheCard)
+                    })
+                }
+
             }
 
             const addButton = this.ownerDocument.createElement("div")
@@ -50,6 +63,22 @@ export class cartPage extends HTMLElement {
             const addIcon = this.ownerDocument.createElement("img")
             addIcon.setAttribute('src', '/src/assets/svg/plusIconBlanco.svg')
             addButton.appendChild(addIcon)
+        }
+    }
+
+    async getClothes() {
+        const data: Array<any> = []
+
+        for (let index = 0; index < state.sessionCart.length; index++) {
+            const element = state.sessionCart[index];
+            const res = await fetch(`http://localhost:5500/clothes/clothe/${element}`)
+            const resJson = await res.json()
+            data.push(resJson.clothesById[0])
+            console.log("Push")
+
+            if (state.sessionCart.length === index + 1) {
+                return data
+            }
         }
     }
 }

@@ -31,6 +31,7 @@ export { cardDressingRoom } from "./components/cardDressingRoomComponent/cardDre
 
 export { cartPage } from "./pages/cartPage/cartPage" // 'cart-page'
 export { emptyCart } from "./components/cartPage/emptyCart/emptyCart" //empty-cart
+export { cartCard } from "./components/cartPage/cartCard/cartCard" //"cart-card"
 
 //Global components
 
