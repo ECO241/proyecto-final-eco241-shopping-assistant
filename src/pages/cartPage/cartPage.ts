@@ -38,6 +38,11 @@ export class cartPage extends HTMLElement {
             const header = this.ownerDocument.createElement("header-component_buyer")
             pageContainer.appendChild(header)
 
+            const buyAllButton = this.ownerDocument.createElement("button")
+            buyAllButton.setAttribute("id", "buyAllButton")
+            buyAllButton.innerText = "Pagar Total"
+            pageContainer.appendChild(buyAllButton)
+
             const cardsContainer = this.ownerDocument.createElement("div")
             cardsContainer.setAttribute("id", "cardsContainer")
             pageContainer.appendChild(cardsContainer)
@@ -74,6 +79,12 @@ export class cartPage extends HTMLElement {
             addButton.addEventListener('click', () => {
                 dispatch(
                     changeScreen(ScreensTypes.addToCartPage, true)
+                )
+            })
+
+            buyAllButton.addEventListener('click', () => {
+                dispatch(
+                    changeScreen(ScreensTypes.pickUpPage, true)
                 )
             })
         }
