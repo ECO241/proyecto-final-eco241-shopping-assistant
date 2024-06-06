@@ -14,7 +14,8 @@ export enum Actions {
   "UPDATE_USER_ID" = "UPDATE_USER_ID",
   "UPDATE_OUTSIDE_USER_ID" = "UPDATE_OTHER_USER_ID",
   "UPDATE_INSIDE_USER_ID" = "UPDATE_INHER_USER_ID",
-  "UPDATE_ROOM_DATA" = "UPDATE_ROOM_DATA"
+  "UPDATE_ROOM_DATA" = "UPDATE_ROOM_DATA",
+  "UPDATE_SEARCH_TEXT" = "UPDATE_SEARCH_TEXT"
 }
 
 export interface AppState {
@@ -25,7 +26,8 @@ export interface AppState {
   userId: string | undefined,
   roomId: undefined | string,
   roomName: undefined | string
-  sessionCart: Array<number>
+  sessionCart: Array<number>,
+  busquedaAddCart: string
 }
 
 interface user {

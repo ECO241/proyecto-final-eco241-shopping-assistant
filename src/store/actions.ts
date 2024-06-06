@@ -35,3 +35,9 @@ export const updateRoomData = (payload: string, reload: boolean): Action => ({
   payload,
   reload
 });
+
+export const updateSearchText = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_SEARCH_TEXT,
+  payload,
+  reload
+});

@@ -13,7 +13,8 @@ export let state: AppState = {
     userId: "m-_RNlHDyNNXDDODAAAB",
     roomId: "aaaaaa",
     roomName: undefined,
-    sessionCart: []
+    sessionCart: [],
+    busquedaAddCart: ""
 };
 
 export const dispatch = (action: Action) => {

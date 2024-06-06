@@ -37,6 +37,11 @@ export const reducer = (action: Action, currentState: AppState): AppState => {
         outsideUser: action.payload.outsideUserCode,
         sessionCart: action.payload.cart
       };
+    case Actions.UPDATE_SEARCH_TEXT:
+      return {
+        ...currentState,
+        busquedaAddCart: action.payload
+      };
     default:
       return currentState;
   }

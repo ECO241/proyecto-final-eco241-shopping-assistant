@@ -72,6 +72,12 @@ export class headerComponentBuyer extends HTMLElement {
             bagIcon.setAttribute("id", "bagIcon")
             iconDiv.appendChild(bagIcon)
 
+            logoHyM.addEventListener('click', () => {
+                dispatch(
+                    changeScreen(ScreensTypes.dressingRoomPage, true)
+                )
+            })
+
             bagIcon.addEventListener('click', () => {
                 dispatch(
                     changeScreen(ScreensTypes.cartPage, true)

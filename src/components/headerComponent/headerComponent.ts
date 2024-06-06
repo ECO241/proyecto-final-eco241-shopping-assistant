@@ -1,6 +1,9 @@
 import { loadCss } from "../../utilities/styles";
 import "../../export";
 import styles from "./headerComponent.css"
+import { dispatch } from "../../store";
+import { changeScreen } from "../../store/actions";
+import { ScreensTypes } from "../../types/screens";
 
 const enum headerProperties {
     icon = "icon"
@@ -63,6 +66,12 @@ export class header extends HTMLElement {
             camaraIcon.setAttribute("src", "/src/assets/svg/Camara Icon.svg")
             camaraIcon.setAttribute("id", "camaraIcon")
             iconDiv.appendChild(camaraIcon)
+
+            logoHyM.addEventListener('click', () => {
+                dispatch(
+                    changeScreen(ScreensTypes.dressingRoomPage, true)
+                )
+            })
         }
 
     }

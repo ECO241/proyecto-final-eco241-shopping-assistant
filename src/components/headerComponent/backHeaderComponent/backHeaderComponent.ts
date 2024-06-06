@@ -3,7 +3,7 @@ import "../../../export";
 import styles from "./backHeaderComponent.css"
 import { dispatch, state } from "../../../store";
 import { ScreensTypes } from "../../../types/screens";
-import { changeScreen } from "../../../store/actions";
+import { changeScreen, updateSearchText } from "../../../store/actions";
 
 
 export class backHeaderComponent extends HTMLElement {
@@ -31,6 +31,9 @@ export class backHeaderComponent extends HTMLElement {
 
             backIcon.addEventListener('click', () => {
                 if (state.screen === ScreensTypes.addToCartPage) {
+                    dispatch(
+                        updateSearchText("", true)
+                    )
                     dispatch(
                         changeScreen(ScreensTypes.cartPage, true)
                     )

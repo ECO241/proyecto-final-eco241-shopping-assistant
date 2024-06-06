@@ -90,12 +90,12 @@ p {
         height: 4rem;
         background-color: #CC071E;
         border-radius: 100%;
-        position: absolute;
-        right: 20px;
-        bottom: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
     }
 
     #addButton img {
