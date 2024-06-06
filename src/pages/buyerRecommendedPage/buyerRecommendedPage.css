@@ -5,7 +5,9 @@ h4,
 h5,
 h6,
 p,
-clothes_like-component {
+button,
+clothes_like-component,
+ask_for_clothes-component {
     font-family: "Lato", sans-serif;
 }
 
@@ -27,87 +29,5 @@ clothes_like-component {
         font-weight: bold;
         margin-bottom: 25px;
         margin-top: 10px;
-    }
-  
-    #welcomeInformationContainer {
-      width: 246px;
-      height: 90px;
-      border: 1px solid white;
-      position: relative;
-      top: -150px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    #welcomeInformationContainer h1 {
-      font-size: 2.25rem;
-      font-family: "Lato", sans-serif;
-      font-weight: 700;
-      font-style: normal;
-      color: white;
-    }
-  
-    #welcomeInformationContainer p {
-      font-size: 1rem;
-      font-family: "Lato", sans-serif;
-      font-weight: 700;
-      font-style: normal;
-      color: white;
-    }
-  
-    #recommendationsSection {
-      width: 86%;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      padding: 30px;
-    }
-  
-    #recommendationsSection h4 {
-      font-size: 0.88rem;
-      font-family: "Lato", sans-serif;
-      font-weight: bold;
-      font-style: normal;
-    }
-  
-    #recommendationsSection p {
-      font-size: 0.88rem;
-      font-family: "Lato", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-  
-    #cardSection{
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-    }
-  
-    card_dressing_room-component {
-      margin-left: -15px;
-    }
-  
-    #buttonDiv{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    #recommendationsSection button {
-      width: 150px;
-      height: 40px;
-      outline: none;
-      background-color: #CC071E;
-      font-size: 1rem;
-      font-family: "Lato", sans-serif;
-      font-weight: 550;
-      font-style: normal;
-      border-radius: 10px;
-      border: none;
-      color: white;
     }
   }

@@ -4,7 +4,7 @@ export const directorioExport = () => {
 
 //clothes Like Component
 
-export {clothesLikeComponent} from "./components/clothesLikeComponent/clothesLikeComponent"
+
 
 //Example page
 export { examplePage } from "./pages/examplePage/examplePage"
@@ -42,6 +42,8 @@ export { sendClothesPage } from "./pages/sendClothesPage/sendClothesPage" // sen
 //Buyer Recommneded Page
 
 export { buyerRecommendedPage } from "./pages/buyerRecommendedPage/buyerRecommendedPage" // buyer_recommended-page
+export { askForClothesComponent } from "./components/askForClothesComponent/askForClothesComponent" // ask_for_clothes-component
+export { clothesLikeComponent } from "./components/clothesLikeComponent/clothesLikeComponent" //clothes_like-component
 
 //Global components
 

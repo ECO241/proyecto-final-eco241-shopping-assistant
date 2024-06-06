@@ -38,6 +38,12 @@ export class buyerRecommendedPage extends HTMLElement {
             clothesLikeComponent.setAttribute("price", "114,000")
             clothesLikeComponent.setAttribute("text", "Top en tiras en tejido negro")
             contentDiv.appendChild(clothesLikeComponent)
+
+            const askForClothesComponent = this.ownerDocument.createElement("ask_for_clothes-component")
+            askForClothesComponent.setAttribute("img", "/src/assets/jpg/Top_negro.png")
+            askForClothesComponent.setAttribute("price", "114,000")
+            askForClothesComponent.setAttribute("text", "Top en tiras en tejido negro")
+            contentDiv.appendChild(askForClothesComponent)
         }
     }
 }
