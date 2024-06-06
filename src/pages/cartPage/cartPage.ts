@@ -4,6 +4,8 @@ import styles from './cartPage.css'
 import "../../export";
 import { changeScreen } from "../../store/actions";
 import { ScreensTypes } from "../../types/screens";
+import { dressingRoomPage } from "../../export";
+import { getRoomData } from "../../utilities/getRoomData";
 
 export class cartPage extends HTMLElement {
     constructor() {
@@ -11,7 +13,8 @@ export class cartPage extends HTMLElement {
         this.attachShadow({ mode: "open" })
     }
 
-    connectedCallback() {
+    async connectedCallback() {
+        await getRoomData()
         this.render()
     }
 
@@ -44,6 +47,7 @@ export class cartPage extends HTMLElement {
                 const emptyCartComponent = this.ownerDocument.createElement("empty-cart")
                 cardsContainer.appendChild(emptyCartComponent)
             } else {
+                await getRoomData()
                 const cart = await this.getClothes()
 
                 if (cart) {

@@ -44,5 +44,21 @@ export const roomsService = {
             throw new Error(error.message)
         }
         return data[0]
+    },
+    addClothesToCartSupabase: async (roomId: string, prendaId: string) => {
+        const roomData = await roomsService.getRoomById(roomId)
+        const roomCart = roomData[0].cart
+
+        roomCart.push(parseInt(prendaId))
+
+
+        const { error } = await supabase
+            .from('Rooms')
+            .update({ cart: roomCart })
+            .eq('id', roomId)
+
+        if (error) {
+            throw new Error(error.message)
+        }
     }
 }

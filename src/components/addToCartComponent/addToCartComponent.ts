@@ -1,6 +1,7 @@
 import { loadCss } from "../../utilities/styles";
 import "../../export";
 import styles from "./addToCartComponent.css"
+import { state } from "../../store";
 
 const enum componentProperties {
     img = "img",
@@ -100,8 +101,9 @@ export class addToCartComponent extends HTMLElement {
             addIcon.setAttribute('src', '/src/assets/svg/plusIconBlanco.svg')
             addButton.appendChild(addIcon)
 
-            addIcon.addEventListener('click', () => {
+            addIcon.addEventListener('click', async () => {
                 console.log(this.properties.id)
+                const response = await fetch(`http://localhost:5500/rooms/${state.roomId}/clothes/${this.properties.id}`, { method: 'PATCH' })
             })
         }
 

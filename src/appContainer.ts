@@ -49,6 +49,7 @@ class AppContainer extends HTMLElement {
                 case ScreensTypes.cartPage:
                     const cartPage = this.ownerDocument.createElement('cart-page')
                     this.shadowRoot.appendChild(cartPage)
+                    break
                 case ScreensTypes.examplePage:
                     console.log("example-page")
                     const examplePage = this.ownerDocument.createElement("example-page")

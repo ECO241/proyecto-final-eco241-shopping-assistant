@@ -9,3 +9,5 @@ roomsRouter.get('/:id', roomsController.getRoomById)
 roomsRouter.patch('/:id/insideUser/', roomsController.updateInsideUserCode)
 
 roomsRouter.patch('/:id/outsideUser/', roomsController.updateOutsideUserCode)
+
+roomsRouter.patch('/:roomId/clothes/:id', roomsController.addClothesToCart)
