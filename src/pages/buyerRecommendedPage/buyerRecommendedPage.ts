@@ -21,7 +21,7 @@ export class buyerRecommendedPage extends HTMLElement {
             pageContainer.setAttribute("id", "pageContainer")
             this.shadowRoot.appendChild(pageContainer)
 
-            const header = this.ownerDocument.createElement("header-component")
+            const header = this.ownerDocument.createElement("header-component_buyer")
             pageContainer.appendChild(header)
 
             const contentDiv = this.ownerDocument.createElement("div")

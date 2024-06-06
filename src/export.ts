@@ -50,7 +50,13 @@ export { clothesLikeComponent } from "./components/clothesLikeComponent/clothesL
 export { cartPage } from "./pages/cartPage/cartPage" // 'cart-page'
 export { emptyCart } from "./components/cartPage/emptyCart/emptyCart" //empty-cart
 
+//Add to Cart Page
+
+export { addToCartPage } from "./pages/addToCartPage/addToCartPage" // add_to_cart-page
+export { addToCartComponent } from "./components/addToCartComponent/addToCartComponent" // add_to_cart-page
+
 //Global components
 
 export { header } from "./components/headerComponent/headerComponent" // header-component
 export { headerComponentBuyer } from "./components/headerComponent/headerComponentBuyer/headerComponentBuyer" //header-component_buyer
+export { backHeaderComponent } from "./components/headerComponent/backHeaderComponent/backHeaderComponent" // back_header-component

@@ -9,5 +9,6 @@ export enum ScreensTypes {
     "dressingRoomPage" = "dressingRoomPage",
     "sendClothesPage" = "sendClothesPage",
     "buyerRecommendedPage" = "buyerRecommendedPage",
-    "cartPage" = "cartPage"
+    "cartPage" = "cartPage",
+    "addToCartPage" = "addToCartPage"
 }
