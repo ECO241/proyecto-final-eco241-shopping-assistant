@@ -53,10 +53,6 @@ export class clothesLikeComponent extends HTMLElement {
         if (this.shadowRoot) {
             loadCss(this, styles)
 
-            const something = this.ownerDocument.createElement("h1")
-            something.innerText = "clothesLikeComponent"
-            this.shadowRoot.appendChild(something)
-
             const clothesLikeDiv = this.ownerDocument.createElement("div")
             clothesLikeDiv.setAttribute("id", "clothesLikeDiv")
             this.shadowRoot.appendChild(clothesLikeDiv)
@@ -70,6 +66,7 @@ export class clothesLikeComponent extends HTMLElement {
             clothesLikeDiv.appendChild(clothesLikeTextDiv)
 
             const clothesText = this.ownerDocument.createElement("h3")
+            clothesText.setAttribute("id", "clothesText")
             clothesText.innerText = this.properties.text
             clothesLikeTextDiv.appendChild(clothesText)
 

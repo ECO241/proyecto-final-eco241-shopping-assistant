@@ -17,24 +17,27 @@ export class buyerRecommendedPage extends HTMLElement {
         if (this.shadowRoot) {
             loadCss(this, styles)
 
+            const pageContainer = this.ownerDocument.createElement("div")
+            pageContainer.setAttribute("id", "pageContainer")
+            this.shadowRoot.appendChild(pageContainer)
+
             const header = this.ownerDocument.createElement("header-component")
-            this.shadowRoot.appendChild(header)
+            pageContainer.appendChild(header)
 
-            const something = this.ownerDocument.createElement('h1');
-            something.innerText = "Own Scaffolding"
-            //Para colocarle un id
-            something.setAttribute("id", "exapleId")
-            this.shadowRoot.appendChild(something);
+            const contentDiv = this.ownerDocument.createElement("div")
+            contentDiv.setAttribute("id", "contentDiv")
+            pageContainer.appendChild(contentDiv)
 
-            const exampleComponent = this.ownerDocument.createElement("component-name")
-            this.shadowRoot.appendChild(exampleComponent)
+            const description = this.ownerDocument.createElement("p")
+            description.setAttribute("id", "description")
+            description.innerText = "Echa un vistazo a estas prendas que recomienda tu compañero"
+            contentDiv.appendChild(description)
 
             const clothesLikeComponent = this.ownerDocument.createElement("clothes_like-component")
             clothesLikeComponent.setAttribute("img", "/src/assets/jpg/Top_negro.png")
             clothesLikeComponent.setAttribute("price", "114,000")
             clothesLikeComponent.setAttribute("text", "Top en tiras en tejido negro")
-            console.log(clothesLikeComponent.attributes)
-            this.shadowRoot.appendChild(clothesLikeComponent)
+            contentDiv.appendChild(clothesLikeComponent)
         }
     }
 }

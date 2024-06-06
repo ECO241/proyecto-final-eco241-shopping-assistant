@@ -1,0 +1,113 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+clothes_like-component {
+    font-family: "Lato", sans-serif;
+}
+
+@media only screen and (min-width: 360px) and (max-width: 435px) {
+    #pageContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      /* height: 100vh; */
+      min-height: 100vh;
+      background-color: rgb(255, 255, 255);
+    }
+
+    #contentDiv{
+        padding: 25px;
+    }
+  
+    #description {
+        font-weight: bold;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+  
+    #welcomeInformationContainer {
+      width: 246px;
+      height: 90px;
+      border: 1px solid white;
+      position: relative;
+      top: -150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #welcomeInformationContainer h1 {
+      font-size: 2.25rem;
+      font-family: "Lato", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      color: white;
+    }
+  
+    #welcomeInformationContainer p {
+      font-size: 1rem;
+      font-family: "Lato", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      color: white;
+    }
+  
+    #recommendationsSection {
+      width: 86%;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      padding: 30px;
+    }
+  
+    #recommendationsSection h4 {
+      font-size: 0.88rem;
+      font-family: "Lato", sans-serif;
+      font-weight: bold;
+      font-style: normal;
+    }
+  
+    #recommendationsSection p {
+      font-size: 0.88rem;
+      font-family: "Lato", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+  
+    #cardSection{
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+  
+    card_dressing_room-component {
+      margin-left: -15px;
+    }
+  
+    #buttonDiv{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    #recommendationsSection button {
+      width: 150px;
+      height: 40px;
+      outline: none;
+      background-color: #CC071E;
+      font-size: 1rem;
+      font-family: "Lato", sans-serif;
+      font-weight: 550;
+      font-style: normal;
+      border-radius: 10px;
+      border: none;
+      color: white;
+    }
+  }
