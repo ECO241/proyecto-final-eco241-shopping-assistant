@@ -57,6 +57,9 @@ export class whoAreYouButton extends HTMLElement {
                 buttonContainer.addEventListener("click", async () => {
                     console.log(state.userId)
                     console.log("Room ID: " + state.roomId)
+                    dispatch(
+                        changeScreen(ScreensTypes.waitingForOtherPage, true)
+                    )
                     const response = await fetch(`http://localhost:5500/rooms/${state.roomId}/insideUser`, {
                         method: 'PATCH',
                         headers: {
@@ -65,18 +68,23 @@ export class whoAreYouButton extends HTMLElement {
                         body: JSON.stringify({ insideUserCode: state.userId }),
                     })
                     const newDataJson = await response.json()
-                    console.log("New Data:")
-                    console.log(newDataJson)
-                    dispatch(
-                        changeScreen(ScreensTypes.waitingForOtherPage, true)
-                    )
-                    alert("Buyer")
+                    if (newDataJson.outsideUserCode !== "") {
+                        dispatch(
+                            changeScreen(ScreensTypes.dressingRoomPage, true)
+                        )
+                    }
+                    // console.log("New Data:")
+                    // console.log(newDataJson)
+
                 })
             }
 
             if (this.properties.type === "companion") {
                 buttonText.innerText = "companion"
                 buttonContainer.addEventListener("click", async () => {
+                    dispatch(
+                        changeScreen(ScreensTypes.waitingForOtherPage, true)
+                    )
                     const response = await fetch(`http://localhost:5500/rooms/${state.roomId}/outsideUser/`, {
                         method: 'PATCH',
                         headers: {
@@ -85,11 +93,13 @@ export class whoAreYouButton extends HTMLElement {
                         body: JSON.stringify({ outsideUserCode: state.userId }),
                     })
                     const newDataJson = await response.json()
-                    console.log(newDataJson)
-                    dispatch(
-                        changeScreen(ScreensTypes.waitingForOtherPage, true)
-                    )
-                    alert("Companion")
+                    if (newDataJson.insideUserCode !== "") {
+                        dispatch(
+                            changeScreen(ScreensTypes.dressingRoomPage, true)
+                        )
+                    }
+                    // console.log(newDataJson)
+
                 })
             }
         }

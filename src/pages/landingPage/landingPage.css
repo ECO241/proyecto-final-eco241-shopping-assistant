@@ -13,7 +13,7 @@ p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: aquamarine;
   }
 
@@ -92,7 +92,7 @@ p {
 
   #scanQRSection {
     width: 86%;
-    height: 353px;
+    /* height: 353px; */
     background-color: white;
     display: flex;
     flex-direction: column;

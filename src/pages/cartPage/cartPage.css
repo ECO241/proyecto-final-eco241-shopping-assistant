@@ -1,0 +1,132 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+empty-cart {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+}
+
+@media only screen and (min-width: 360px) and (max-width: 435px) {
+    #pageContainer {
+        display: flex;
+        flex-direction: column;
+       
+        width: 100%;
+        /* height: 100vh; */
+        min-height: 100vh;
+        background-color: rgb(255, 255, 255);
+    }
+
+    #cardsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 50px 0 0 0;
+    }
+
+    empty-cart {
+        width: 70%;
+    }
+
+    #addButton {
+        width: 4rem;
+        height: 4rem;
+        background-color: #CC071E;
+        border-radius: 100%;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #addButton img {
+        width: 5rem;
+    }
+}h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+@media only screen and (min-width: 360px) and (max-width: 435px) {
+    #pageContainer {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        /* height: 100vh; */
+        min-height: 100vh;
+        background-color: rgb(255, 255, 255);
+    }
+
+    #cardsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 50px 0 0 0;
+    }
+
+    empty-cart {
+        width: 70%;
+    }
+
+    #addButton {
+        width: 4rem;
+        height: 4rem;
+        background-color: #CC071E;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    #addButton img {
+        width: 5rem;
+    }
+
+    cart-card {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    #buyAllButton{
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight:400;
+        line-height: normal;
+
+        width: 110px;
+
+        
+    
+        border-radius: 5px;
+        background: #CC071E;
+        border: none;
+    
+        padding: 8px 10px;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+}

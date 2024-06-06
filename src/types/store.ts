@@ -10,16 +10,24 @@ export interface Action {
 
 export enum Actions {
   "CHANGE_SCREEN" = "CHANGE_SCREEN",
-  "UPDATE_ROOM_ID" = "UPDATE_ROOM_ID"
+  "UPDATE_ROOM_ID" = "UPDATE_ROOM_ID",
+  "UPDATE_USER_ID" = "UPDATE_USER_ID",
+  "UPDATE_OUTSIDE_USER_ID" = "UPDATE_OTHER_USER_ID",
+  "UPDATE_INSIDE_USER_ID" = "UPDATE_INHER_USER_ID",
+  "UPDATE_ROOM_DATA" = "UPDATE_ROOM_DATA",
+  "UPDATE_SEARCH_TEXT" = "UPDATE_SEARCH_TEXT"
 }
 
 export interface AppState {
   screen: ScreensTypes
-  insideUser: user | undefined
-  outsideUser: user | undefined
+  insideUser: string | undefined
+  outsideUser: string | undefined
   sessionClothes: Array<clothes>,
-  userId: string,
-  roomId: undefined | string
+  userId: string | undefined,
+  roomId: undefined | string,
+  roomName: undefined | string
+  sessionCart: Array<number>,
+  busquedaAddCart: string
 }
 
 interface user {

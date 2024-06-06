@@ -1,8 +1,8 @@
 import "../../export";
 import styles from "./dressingRoomPage.css" //Actualizar la ruta del css para cada componente
 import { loadCss } from "../../utilities/styles";
-import { dispatch } from "../../store";
-import { changeScreen } from "../../store/actions";
+import { dispatch, state } from "../../store";
+import { changeScreen, updateRoomData } from "../../store/actions";
 import { ScreensTypes } from "../../types/screens";
 
 export class dressingRoomPage extends HTMLElement {
@@ -12,6 +12,9 @@ export class dressingRoomPage extends HTMLElement {
     }
 
     connectedCallback() {
+        if (!state.roomName) {
+            this.getRoomData()
+        }
         this.render()
     }
 
@@ -19,11 +22,21 @@ export class dressingRoomPage extends HTMLElement {
         if (this.shadowRoot) {
             loadCss(this, styles)
 
+
+
             const pageContainer = this.ownerDocument.createElement("div")
             pageContainer.setAttribute("id", "pageContainer")
             this.shadowRoot.appendChild(pageContainer)
 
-            const header = this.ownerDocument.createElement("header-component")
+            if (state.insideUser === state.userId) {
+                const header = this.ownerDocument.createElement("header-component_buyer")
+                pageContainer.appendChild(header)
+            } else if (state.outsideUser === state.userId) {
+                const header = this.ownerDocument.createElement("header-component")
+                pageContainer.appendChild(header)
+            }
+
+            const header = this.ownerDocument.createElement("header-component_buyer")
             pageContainer.appendChild(header)
 
             const welcomeSection = this.ownerDocument.createElement("div")
@@ -39,8 +52,16 @@ export class dressingRoomPage extends HTMLElement {
             welcomeInformationContainer.appendChild(welcomeInfoTitle)
 
             const welcomeInforSubitle = this.ownerDocument.createElement("p")
-            welcomeInforSubitle.innerText = "PROBADOR 1"
+            welcomeInforSubitle.innerText = `PROBADOR ${state.roomName}`
             welcomeInformationContainer.appendChild(welcomeInforSubitle)
+
+            const userSubtitle = this.ownerDocument.createElement("p")
+            if (state.insideUser === state.userId) {
+                userSubtitle.innerText = `Eres el comprador`
+            } else if (state.outsideUser === state.userId) {
+                userSubtitle.innerText = `Eres el acompañante`
+            }
+            welcomeInformationContainer.appendChild(userSubtitle)
 
             const recommendationsSection = this.ownerDocument.createElement("div")
             recommendationsSection.setAttribute("id", "recommendationsSection")
@@ -61,7 +82,7 @@ export class dressingRoomPage extends HTMLElement {
             recommendationsTextDiv.appendChild(topSalesText)
 
             const cardSection = this.ownerDocument.createElement("div")
-            cardSection.setAttribute("id","cardSection")
+            cardSection.setAttribute("id", "cardSection")
             recommendationsSection.appendChild(cardSection)
 
             const cardDressingRoom1 = this.ownerDocument.createElement("card_dressing_room-component")
@@ -86,6 +107,16 @@ export class dressingRoomPage extends HTMLElement {
 
         }
     }
+
+    async getRoomData() {
+        const roomData = await fetch(`http://localhost:5500/rooms/${state.roomId}`)
+        const roomDataJson = await roomData.json()
+        console.log(roomDataJson.data[0])
+        dispatch(
+            updateRoomData(roomDataJson.data[0], true)
+        )
+    }
 }
 
 customElements.define('dressing_room-page', dressingRoomPage)
+//Llegué

@@ -11,3 +11,33 @@ export const updateRoomId = (payload: string | undefined, reload: boolean): Acti
   payload,
   reload
 });
+
+export const updateUserId = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_USER_ID,
+  payload,
+  reload
+});
+
+export const updateOutsideUserId = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_OUTSIDE_USER_ID,
+  payload,
+  reload
+});
+
+export const updateInsideUserId = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_INSIDE_USER_ID,
+  payload,
+  reload
+});
+
+export const updateRoomData = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_ROOM_DATA,
+  payload,
+  reload
+});
+
+export const updateSearchText = (payload: string, reload: boolean): Action => ({
+  type: Actions.UPDATE_SEARCH_TEXT,
+  payload,
+  reload
+});

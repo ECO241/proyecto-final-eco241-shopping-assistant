@@ -3,15 +3,18 @@ import { Action, AppState, Observer } from "../types/store";
 import { randomString } from "../utilities/randomString";
 import { reducer } from "./reducer";
 
-const observers: Observer[] = [];
+export const observers: Observer[] = [];
 
 export let state: AppState = {
-    screen: ScreensTypes.landingPage,
-    insideUser: undefined,
+    screen: ScreensTypes.addToCartPage,
+    insideUser: "m-_RNlHDyNNXDDODAAAB",
     outsideUser: undefined,
     sessionClothes: [],
-    userId: randomString(10),
-    roomId: undefined
+    userId: "m-_RNlHDyNNXDDODAAAB",
+    roomId: "aaaaaa",
+    roomName: undefined,
+    sessionCart: [],
+    busquedaAddCart: ""
 };
 
 export const dispatch = (action: Action) => {
@@ -20,6 +23,7 @@ export const dispatch = (action: Action) => {
     if (action.reload === true) {
         observers.forEach((o) => o.render());
     }
+    console.log("AppState")
     console.log(state)
 };
 
