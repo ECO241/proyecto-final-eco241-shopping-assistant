@@ -89,6 +89,7 @@ export class cartPage extends HTMLElement {
             })
         }
     }
+    
 
     async getClothes() {
         const data: Array<any> = []
