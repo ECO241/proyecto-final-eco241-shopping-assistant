@@ -6,12 +6,14 @@ import { reducer } from "./reducer";
 const observers: Observer[] = [];
 
 export let state: AppState = {
-    screen: ScreensTypes.buyerRecommendedPage,
+    screen: ScreensTypes.cartPage,
     insideUser: undefined,
     outsideUser: undefined,
     sessionClothes: [],
-    userId: randomString(10),
-    roomId: undefined
+    userId: undefined,
+    roomId: "aaaaaa",
+    roomName: undefined,
+    sessionCart: []
 };
 
 export const dispatch = (action: Action) => {
@@ -20,6 +22,7 @@ export const dispatch = (action: Action) => {
     if (action.reload === true) {
         observers.forEach((o) => o.render());
     }
+    console.log("AppState")
     console.log(state)
 };
 

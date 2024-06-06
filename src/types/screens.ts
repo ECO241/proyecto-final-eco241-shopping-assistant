@@ -8,5 +8,6 @@ export enum ScreensTypes {
     "successfulConnectionPage" = "successfulConnectionPage",
     "dressingRoomPage" = "dressingRoomPage",
     "sendClothesPage" = "sendClothesPage",
-    "buyerRecommendedPage" = "buyerRecommendedPage"
+    "buyerRecommendedPage" = "buyerRecommendedPage",
+    "cartPage" = "cartPage"
 }

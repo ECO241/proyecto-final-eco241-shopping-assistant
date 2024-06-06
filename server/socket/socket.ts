@@ -6,9 +6,10 @@ import { Server } from 'socket.io';
 import { createServer } from 'http';
 import { updateRoomConnection, updateRoomConnectionSchema } from './socketDataTypes';
 
+export let globalSocket: Socket | undefined = undefined
 export const httpServer = createServer(app);
 
-const io = new Server(httpServer, {
+export const io = new Server(httpServer, {
     cors: {
         origin: "http://localhost:3000", //Le digo que permita el cors de esta ubicacion, es decir, de nuestro cliente
         methods: ["GET", "POST", "PUT", "PATCH"] //Le digo que permita los metodos http de GET y POST
@@ -19,10 +20,12 @@ const io = new Server(httpServer, {
 
 //El evento connection pasa cuando un cliente se conecta por primera vez al servidor.
 io.on('connection', (socket: Socket) => {
-    console.log('A user has connected from:')
-    console.log(socket.client.request.headers.origin)
+    globalSocket = socket
 
-    socket.emit('pruebaConnection', JSON.stringify({hola: "Adios"}))
+    console.log(`A user has connected from: ${socket.client.request.headers.origin}`)
+    console.log(`With socket session ID of: ${socket.id}`)
+
+    socket.emit('Socket Id', socket.id)
 
     socket.on('enteringRoom', (data: any) => {
         console.log("Entering Room")
@@ -73,5 +76,14 @@ io.on('connection', (socket: Socket) => {
             }))
         }
         console.log(roomsDatabase)
+    })
+
+    socket.on('enter', (data: string) => {
+        console.log(`Evento enter: ${data}`)
+        socket.emit('privado', JSON.stringify({
+            target: data,
+            message: "Cambia de pantalla",
+            type: "changeScreen"
+        }))
     })
 })

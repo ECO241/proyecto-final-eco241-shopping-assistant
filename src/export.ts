@@ -45,6 +45,12 @@ export { buyerRecommendedPage } from "./pages/buyerRecommendedPage/buyerRecommen
 export { askForClothesComponent } from "./components/askForClothesComponent/askForClothesComponent" // ask_for_clothes-component
 export { clothesLikeComponent } from "./components/clothesLikeComponent/clothesLikeComponent" //clothes_like-component
 
+//Cart Page
+
+export { cartPage } from "./pages/cartPage/cartPage" // 'cart-page'
+export { emptyCart } from "./components/cartPage/emptyCart/emptyCart" //empty-cart
+
 //Global components
 
 export { header } from "./components/headerComponent/headerComponent" // header-component
+export { headerComponentBuyer } from "./components/headerComponent/headerComponentBuyer/headerComponentBuyer" //header-component_buyer

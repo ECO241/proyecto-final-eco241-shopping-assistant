@@ -1,18 +1,21 @@
-import { loadCss } from "../../utilities/styles";
-import "../../export";
-import styles from "./headerComponent.css"
+import { loadCss } from "../../../utilities/styles";
+import "../../../export";
+import styles from "./headerComponentBuyer.css"
+import { dispatch } from "../../../store";
+import { changeScreen } from "../../../store/actions";
+import { ScreensTypes } from "../../../types/screens";
 
-const enum headerProperties {
+const enum headerComponentBuyerProperties {
     icon = "icon"
 }
 
-export class header extends HTMLElement {
-    properties: Record<headerProperties, string> = {
+export class headerComponentBuyer extends HTMLElement {
+    properties: Record<headerComponentBuyerProperties, string> = {
         icon: ""
     }
 
     static get observedAttributes() {
-        const properties: Record<headerProperties, null> = {
+        const properties: Record<headerComponentBuyerProperties, null> = {
             icon: null,
         }
         return Object.keys(properties);
@@ -23,9 +26,9 @@ export class header extends HTMLElement {
         this.attachShadow({ mode: "open" })
     }
 
-    attributeChangedCallback(propName: headerProperties, oldValue: string, newValue: string) {
+    attributeChangedCallback(propName: headerComponentBuyerProperties, oldValue: string, newValue: string) {
         switch (propName) {
-            case headerProperties.icon:
+            case headerComponentBuyerProperties.icon:
                 this.properties.icon = newValue
                 break;
             default:
@@ -55,7 +58,7 @@ export class header extends HTMLElement {
             bar.appendChild(iconDiv)
 
             const chatIcon = this.ownerDocument.createElement("img")
-            chatIcon.setAttribute("src", "/src/assets/svg/Chat Icon.svg")
+            chatIcon.setAttribute("src", "/src/assets/svg/usersChat.svg")
             chatIcon.setAttribute("id", "chatIcon")
             iconDiv.appendChild(chatIcon)
 
@@ -63,9 +66,20 @@ export class header extends HTMLElement {
             camaraIcon.setAttribute("src", "/src/assets/svg/Camara Icon.svg")
             camaraIcon.setAttribute("id", "camaraIcon")
             iconDiv.appendChild(camaraIcon)
+
+            const bagIcon = this.ownerDocument.createElement("img")
+            bagIcon.setAttribute("src", "/src/assets/svg/Bag Icon.svg")
+            bagIcon.setAttribute("id", "bagIcon")
+            iconDiv.appendChild(bagIcon)
+
+            bagIcon.addEventListener('click', () => {
+                dispatch(
+                    changeScreen(ScreensTypes.cartPage, true)
+                )
+            })
         }
 
     }
 }
 
-customElements.define("header-component", header)
+customElements.define("header-component_buyer", headerComponentBuyer)
