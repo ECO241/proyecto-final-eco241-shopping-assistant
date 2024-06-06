@@ -1,36 +1,15 @@
 import { loadCss } from "../../../utilities/styles";
 import "../../../export";
 import styles from "./backHeaderComponent.css"
+import { dispatch, state } from "../../../store";
+import { ScreensTypes } from "../../../types/screens";
+import { changeScreen } from "../../../store/actions";
 
-const enum headerProperties {
-    icon = "icon"
-}
 
 export class backHeaderComponent extends HTMLElement {
-    properties: Record<headerProperties, string> = {
-        icon: ""
-    }
-
-    static get observedAttributes() {
-        const properties: Record<headerProperties, null> = {
-            icon: null,
-        }
-        return Object.keys(properties);
-    }
-
     constructor() {
         super()
         this.attachShadow({ mode: "open" })
-    }
-
-    attributeChangedCallback(propName: headerProperties, oldValue: string, newValue: string) {
-        switch (propName) {
-            case headerProperties.icon:
-                this.properties.icon = newValue
-                break;
-            default:
-                break;
-        }
     }
 
     connectedCallback() {
@@ -49,6 +28,14 @@ export class backHeaderComponent extends HTMLElement {
             backIcon.setAttribute("src", "/src/assets/svg/Arrow_left.svg")
             backIcon.setAttribute("id", "backIcon")
             bar.appendChild(backIcon)
+
+            backIcon.addEventListener('click', () => {
+                if (state.screen === ScreensTypes.addToCartPage) {
+                    dispatch(
+                        changeScreen(ScreensTypes.cartPage, true)
+                    )
+                }
+            })
 
         }
 

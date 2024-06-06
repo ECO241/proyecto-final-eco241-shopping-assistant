@@ -1,7 +1,9 @@
-import { state } from "../../store";
+import { dispatch, state } from "../../store";
 import { loadCss } from "../../utilities/styles";
 import styles from './cartPage.css'
 import "../../export";
+import { changeScreen } from "../../store/actions";
+import { ScreensTypes } from "../../types/screens";
 
 export class cartPage extends HTMLElement {
     constructor() {
@@ -63,6 +65,12 @@ export class cartPage extends HTMLElement {
             const addIcon = this.ownerDocument.createElement("img")
             addIcon.setAttribute('src', '/src/assets/svg/plusIconBlanco.svg')
             addButton.appendChild(addIcon)
+
+            addButton.addEventListener('click', () => {
+                dispatch(
+                    changeScreen(ScreensTypes.addToCartPage, true)
+                )
+            })
         }
     }
 

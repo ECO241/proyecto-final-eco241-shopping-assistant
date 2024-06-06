@@ -7,10 +7,10 @@ const observers: Observer[] = [];
 
 export let state: AppState = {
     screen: ScreensTypes.dressingRoomPage,
-    insideUser: undefined,
+    insideUser: "m-_RNlHDyNNXDDODAAAB",
     outsideUser: undefined,
     sessionClothes: [],
-    userId: undefined,
+    userId: "m-_RNlHDyNNXDDODAAAB",
     roomId: "aaaaaa",
     roomName: undefined,
     sessionCart: []

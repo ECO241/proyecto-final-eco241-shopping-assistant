@@ -68,3 +68,5 @@ export { cartCard } from "./components/cartPage/cartCard/cartCard" //"cart-card"
 //Global components
 
 export { header } from "./components/headerComponent/headerComponent" // header-component
+export { headerComponentBuyer } from "./components/headerComponent/headerComponentBuyer/headerComponentBuyer"
+export { backHeaderComponent } from "./components/headerComponent/backHeaderComponent/backHeaderComponent"
